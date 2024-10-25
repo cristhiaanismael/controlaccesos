@@ -1,0 +1,36 @@
+[04-Sep-2024 17:10:09 America/Mexico_City] PHP Warning:  require(/home/icamie5/public_html/carga_masiva/vendor/composer/../ralouphie/getallheaders/src/getallheaders.php): failed to open stream: No such file or directory in /home/icamie5/public_html/carga_masiva/vendor/composer/autoload_real.php on line 55
+[04-Sep-2024 17:10:09 America/Mexico_City] PHP Fatal error:  require(): Failed opening required '/home/icamie5/public_html/carga_masiva/vendor/composer/../ralouphie/getallheaders/src/getallheaders.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/icamie5/public_html/carga_masiva/vendor/composer/autoload_real.php on line 55
+[04-Sep-2024 18:01:15 America/Mexico_City] PHP Warning:  require(/home/icamie5/public_html/carga_masiva/vendor/composer/../ralouphie/getallheaders/src/getallheaders.php): failed to open stream: No such file or directory in /home/icamie5/public_html/carga_masiva/vendor/composer/autoload_real.php on line 55
+[04-Sep-2024 18:01:15 America/Mexico_City] PHP Fatal error:  require(): Failed opening required '/home/icamie5/public_html/carga_masiva/vendor/composer/../ralouphie/getallheaders/src/getallheaders.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/icamie5/public_html/carga_masiva/vendor/composer/autoload_real.php on line 55
+[04-Sep-2024 18:02:00 America/Mexico_City] PHP Warning:  require(/home/icamie5/public_html/carga_masiva/vendor/composer/../ralouphie/getallheaders/src/getallheaders.php): failed to open stream: No such file or directory in /home/icamie5/public_html/carga_masiva/vendor/composer/autoload_real.php on line 55
+[04-Sep-2024 18:02:00 America/Mexico_City] PHP Fatal error:  require(): Failed opening required '/home/icamie5/public_html/carga_masiva/vendor/composer/../ralouphie/getallheaders/src/getallheaders.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/icamie5/public_html/carga_masiva/vendor/composer/autoload_real.php on line 55
+[04-Sep-2024 18:02:03 America/Mexico_City] PHP Warning:  require(/home/icamie5/public_html/carga_masiva/vendor/composer/../ralouphie/getallheaders/src/getallheaders.php): failed to open stream: No such file or directory in /home/icamie5/public_html/carga_masiva/vendor/composer/autoload_real.php on line 55
+[04-Sep-2024 18:02:03 America/Mexico_City] PHP Fatal error:  require(): Failed opening required '/home/icamie5/public_html/carga_masiva/vendor/composer/../ralouphie/getallheaders/src/getallheaders.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/icamie5/public_html/carga_masiva/vendor/composer/autoload_real.php on line 55
+[04-Sep-2024 18:02:04 America/Mexico_City] PHP Warning:  require(/home/icamie5/public_html/carga_masiva/vendor/composer/../ralouphie/getallheaders/src/getallheaders.php): failed to open stream: No such file or directory in /home/icamie5/public_html/carga_masiva/vendor/composer/autoload_real.php on line 55
+[04-Sep-2024 18:02:04 America/Mexico_City] PHP Fatal error:  require(): Failed opening required '/home/icamie5/public_html/carga_masiva/vendor/composer/../ralouphie/getallheaders/src/getallheaders.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/icamie5/public_html/carga_masiva/vendor/composer/autoload_real.php on line 55
+[04-Sep-2024 18:02:24 America/Mexico_City] PHP Warning:  require(/home/icamie5/public_html/carga_masiva/vendor/composer/../ralouphie/getallheaders/src/getallheaders.php): failed to open stream: No such file or directory in /home/icamie5/public_html/carga_masiva/vendor/composer/autoload_real.php on line 55
+[04-Sep-2024 18:02:24 America/Mexico_City] PHP Fatal error:  require(): Failed opening required '/home/icamie5/public_html/carga_masiva/vendor/composer/../ralouphie/getallheaders/src/getallheaders.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/icamie5/public_html/carga_masiva/vendor/composer/autoload_real.php on line 55
+[05-Sep-2024 17:31:48 America/Mexico_City] PHP Fatal error:  Uncaught Error: Object of class PhpOffice\PhpSpreadsheet\Spreadsheet could not be converted to string in /home/icamie5/public_html/carga_masiva/app/Controllers/ExcelLector.php:147
+Stack trace:
+#0 /home/icamie5/public_html/carga_masiva/vendor/codeigniter4/framework/system/CodeIgniter.php(896): App\Controllers\ExcelLector->recibe()
+#1 /home/icamie5/public_html/carga_masiva/vendor/codeigniter4/framework/system/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+#2 /home/icamie5/public_html/carga_masiva/vendor/codeigniter4/framework/system/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /home/icamie5/public_html/carga_masiva/index.php(65): CodeIgniter\CodeIgniter->run()
+#4 {main}
+  thrown in /home/icamie5/public_html/carga_masiva/app/Controllers/ExcelLector.php on line 147
+[05-Sep-2024 17:32:33 America/Mexico_City] PHP Fatal error:  Uncaught Error: Object of class PhpOffice\PhpSpreadsheet\Spreadsheet could not be converted to string in /home/icamie5/public_html/carga_masiva/app/Controllers/ExcelLector.php:147
+Stack trace:
+#0 /home/icamie5/public_html/carga_masiva/vendor/codeigniter4/framework/system/CodeIgniter.php(896): App\Controllers\ExcelLector->recibe()
+#1 /home/icamie5/public_html/carga_masiva/vendor/codeigniter4/framework/system/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+#2 /home/icamie5/public_html/carga_masiva/vendor/codeigniter4/framework/system/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /home/icamie5/public_html/carga_masiva/index.php(65): CodeIgniter\CodeIgniter->run()
+#4 {main}
+  thrown in /home/icamie5/public_html/carga_masiva/app/Controllers/ExcelLector.php on line 147
+[05-Sep-2024 17:33:16 America/Mexico_City] PHP Fatal error:  Uncaught Error: Object of class PhpOffice\PhpSpreadsheet\Reader\Xlsx could not be converted to string in /home/icamie5/public_html/carga_masiva/app/Controllers/ExcelLector.php:146
+Stack trace:
+#0 /home/icamie5/public_html/carga_masiva/vendor/codeigniter4/framework/system/CodeIgniter.php(896): App\Controllers\ExcelLector->recibe()
+#1 /home/icamie5/public_html/carga_masiva/vendor/codeigniter4/framework/system/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+#2 /home/icamie5/public_html/carga_masiva/vendor/codeigniter4/framework/system/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /home/icamie5/public_html/carga_masiva/index.php(65): CodeIgniter\CodeIgniter->run()
+#4 {main}
+  thrown in /home/icamie5/public_html/carga_masiva/app/Controllers/ExcelLector.php on line 146

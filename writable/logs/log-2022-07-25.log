@@ -1,0 +1,324 @@
+CRITICAL - 2022-07-25 08:54:37 --> var_dump() expects at least 1 argument, 0 given
+in APPPATH\Controllers\ExcelLector.php on line 46.
+ 1 APPPATH\Controllers\ExcelLector.php(46): var_dump()
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->recibe()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 08:59:31 --> syntax error, unexpected token ")"
+in APPPATH\Controllers\ExcelLector.php on line 65.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(261): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\ExcelLector.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(239): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\ExcelLector')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\ExcelLector')
+ 4 SYSTEMPATH\CodeIgniter.php(846): class_exists('\\App\\Controllers\\ExcelLector', true)
+ 5 SYSTEMPATH\CodeIgniter.php(453): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 10:09:28 --> syntax error, unexpected token "}"
+in APPPATH\Controllers\ExcelLector.php on line 131.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(261): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\ExcelLector.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(239): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\ExcelLector')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\ExcelLector')
+ 4 SYSTEMPATH\CodeIgniter.php(846): class_exists('\\App\\Controllers\\ExcelLector', true)
+ 5 SYSTEMPATH\CodeIgniter.php(453): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 11:16:32 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\ExcelLector.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->exportar()
+ 2 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 3 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 11:17:16 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\ExcelLector.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->exportar()
+ 2 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 3 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 11:17:26 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\ExcelLector.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->exportar()
+ 2 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 3 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 11:18:04 --> Call to undefined method stdClass::Nombre()
+in APPPATH\Controllers\ExcelLector.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->exportar()
+ 2 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 3 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 11:18:20 --> Undefined property: stdClass::$Email
+in APPPATH\Controllers\ExcelLector.php on line 15.
+ 1 APPPATH\Controllers\ExcelLector.php(15): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$Email', 'APPPATH\\Controllers\\ExcelLector.php', 15)
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->exportar()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 11:19:02 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\ExcelLector.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->exportar()
+ 2 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 3 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 11:20:07 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\ExcelLector.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->exportar()
+ 2 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 3 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 11:21:48 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\ExcelLector.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->exportar()
+ 2 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 3 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 11:24:15 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\ExcelLector.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->exportar()
+ 2 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 3 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 11:24:31 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\ExcelLector.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->exportar()
+ 2 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 3 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 11:24:51 --> syntax error, unexpected integer "1", expecting identifier or variable or "{" or "$"
+in APPPATH\Controllers\ExcelLector.php on line 14.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(261): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\ExcelLector.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(239): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\ExcelLector')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\ExcelLector')
+ 4 SYSTEMPATH\CodeIgniter.php(846): class_exists('\\App\\Controllers\\ExcelLector', true)
+ 5 SYSTEMPATH\CodeIgniter.php(453): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 11:25:38 --> Undefined property: stdClass::$Apellido
+in APPPATH\Controllers\ExcelLector.php on line 14.
+ 1 APPPATH\Controllers\ExcelLector.php(14): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$Apellido', 'APPPATH\\Controllers\\ExcelLector.php', 14)
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->exportar()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 11:30:46 --> foreach() argument must be of type array|object, null given
+in APPPATH\Controllers\ExcelLector.php on line 15.
+ 1 APPPATH\Controllers\ExcelLector.php(15): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, null given', 'APPPATH\\Controllers\\ExcelLector.php', 15)
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->exportar()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 11:31:29 --> foreach() argument must be of type array|object, null given
+in APPPATH\Controllers\ExcelLector.php on line 15.
+ 1 APPPATH\Controllers\ExcelLector.php(15): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, null given', 'APPPATH\\Controllers\\ExcelLector.php', 15)
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->exportar()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 11:33:04 --> foreach() argument must be of type array|object, null given
+in APPPATH\Controllers\ExcelLector.php on line 15.
+ 1 APPPATH\Controllers\ExcelLector.php(15): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, null given', 'APPPATH\\Controllers\\ExcelLector.php', 15)
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->exportar()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 11:37:50 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\ExcelLector.php on line 21.
+ 1 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->exportar()
+ 2 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 3 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-07-25 12:11:40 --> Error connecting to the database: Access denied for user '****'@'localhost' (using password: YES)
+CRITICAL - 2022-07-25 12:11:40 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+in SYSTEMPATH\Database\BaseConnection.php on line 416.
+ 1 SYSTEMPATH\Database\BaseConnection.php(586): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1904): CodeIgniter\Database\BaseConnection->query('INSERT INTO `c_lista` (`id_sede`, `id_program`, `nombre`, `script`, `is_dynamic`, `deleted`, `last_modified_by`, `last_modified_at`, `created_at`, `updated_at`) VALUES (:id_sede:, :id_program:, :nombre:, :script:, :is_dynamic:, :deleted:, :last_modified_by:, :last_modified_at:, :created_at:, :updated_at:)', [...], false)
+ 3 SYSTEMPATH\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+ 4 SYSTEMPATH\BaseModel.php(738): CodeIgniter\Model->doInsert([...])
+ 5 SYSTEMPATH\Model.php(666): CodeIgniter\BaseModel->insert([...], true)
+ 6 APPPATH\Controllers\ExcelLector.php(35): CodeIgniter\Model->insert([...])
+ 7 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->exportar()
+ 8 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 9 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-07-25 12:13:22 --> Unknown column 'updated_at' in 'field list'
+CRITICAL - 2022-07-25 12:13:22 --> Unknown column 'updated_at' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `c_lista` (`id_sede`, `id_program`, `nombre`, `script`, `is_dynamic`, `deleted`, `last_modified_by`, `last_modified_at`, `created_at`, `updated_at`) VALUES (0, 0, \'test\', \'\', 0, 0, 1, \'\', \'2022-07-25 12:13:22\', \'2022-07-25 12:13:22\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `c_lista` (`id_sede`, `id_program`, `nombre`, `script`, `is_dynamic`, `deleted`, `last_modified_by`, `last_modified_at`, `created_at`, `updated_at`) VALUES (0, 0, \'test\', \'\', 0, 0, 1, \'\', \'2022-07-25 12:13:22\', \'2022-07-25 12:13:22\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `c_lista` (`id_sede`, `id_program`, `nombre`, `script`, `is_dynamic`, `deleted`, `last_modified_by`, `last_modified_at`, `created_at`, `updated_at`) VALUES (0, 0, \'test\', \'\', 0, 0, 1, \'\', \'2022-07-25 12:13:22\', \'2022-07-25 12:13:22\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1904): CodeIgniter\Database\BaseConnection->query('INSERT INTO `c_lista` (`id_sede`, `id_program`, `nombre`, `script`, `is_dynamic`, `deleted`, `last_modified_by`, `last_modified_at`, `created_at`, `updated_at`) VALUES (:id_sede:, :id_program:, :nombre:, :script:, :is_dynamic:, :deleted:, :last_modified_by:, :last_modified_at:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(738): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(666): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\ExcelLector.php(35): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->exportar()
+10 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+11 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-07-25 12:13:42 --> Unknown column 'updated_at' in 'field list'
+CRITICAL - 2022-07-25 12:13:42 --> Unknown column 'updated_at' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `c_lista` (`id_sede`, `id_program`, `nombre`, `script`, `is_dynamic`, `deleted`, `last_modified_by`, `last_modified_at`, `created_at`, `updated_at`) VALUES (0, 0, \'test\', \'\', 0, 0, 1, \'\', \'2022-07-25 12:13:42\', \'2022-07-25 12:13:42\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `c_lista` (`id_sede`, `id_program`, `nombre`, `script`, `is_dynamic`, `deleted`, `last_modified_by`, `last_modified_at`, `created_at`, `updated_at`) VALUES (0, 0, \'test\', \'\', 0, 0, 1, \'\', \'2022-07-25 12:13:42\', \'2022-07-25 12:13:42\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `c_lista` (`id_sede`, `id_program`, `nombre`, `script`, `is_dynamic`, `deleted`, `last_modified_by`, `last_modified_at`, `created_at`, `updated_at`) VALUES (0, 0, \'test\', \'\', 0, 0, 1, \'\', \'2022-07-25 12:13:42\', \'2022-07-25 12:13:42\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1904): CodeIgniter\Database\BaseConnection->query('INSERT INTO `c_lista` (`id_sede`, `id_program`, `nombre`, `script`, `is_dynamic`, `deleted`, `last_modified_by`, `last_modified_at`, `created_at`, `updated_at`) VALUES (:id_sede:, :id_program:, :nombre:, :script:, :is_dynamic:, :deleted:, :last_modified_by:, :last_modified_at:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(738): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(666): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\ExcelLector.php(35): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->exportar()
+10 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+11 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-07-25 12:13:51 --> Unknown column 'updated_at' in 'field list'
+CRITICAL - 2022-07-25 12:13:51 --> Unknown column 'updated_at' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `c_lista` (`id_sede`, `id_program`, `nombre`, `script`, `is_dynamic`, `deleted`, `last_modified_by`, `last_modified_at`, `created_at`, `updated_at`) VALUES (0, 0, \'test\', \'\', 0, 0, 1, \'\', \'2022-07-25 12:13:51\', \'2022-07-25 12:13:51\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `c_lista` (`id_sede`, `id_program`, `nombre`, `script`, `is_dynamic`, `deleted`, `last_modified_by`, `last_modified_at`, `created_at`, `updated_at`) VALUES (0, 0, \'test\', \'\', 0, 0, 1, \'\', \'2022-07-25 12:13:51\', \'2022-07-25 12:13:51\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `c_lista` (`id_sede`, `id_program`, `nombre`, `script`, `is_dynamic`, `deleted`, `last_modified_by`, `last_modified_at`, `created_at`, `updated_at`) VALUES (0, 0, \'test\', \'\', 0, 0, 1, \'\', \'2022-07-25 12:13:51\', \'2022-07-25 12:13:51\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1904): CodeIgniter\Database\BaseConnection->query('INSERT INTO `c_lista` (`id_sede`, `id_program`, `nombre`, `script`, `is_dynamic`, `deleted`, `last_modified_by`, `last_modified_at`, `created_at`, `updated_at`) VALUES (:id_sede:, :id_program:, :nombre:, :script:, :is_dynamic:, :deleted:, :last_modified_by:, :last_modified_at:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(738): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(666): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\ExcelLector.php(35): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->exportar()
+10 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+11 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-07-25 12:14:28 --> Unknown column 'updated_at' in 'field list'
+CRITICAL - 2022-07-25 12:14:28 --> Unknown column 'updated_at' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `c_lista` (`id_sede`, `id_program`, `nombre`, `script`, `is_dynamic`, `deleted`, `last_modified_by`, `last_modified_at`, `created_at`, `updated_at`) VALUES (0, 0, \'test\', \'\', 0, 0, 1, \'\', \'2022-07-25 12:14:28\', \'2022-07-25 12:14:28\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `c_lista` (`id_sede`, `id_program`, `nombre`, `script`, `is_dynamic`, `deleted`, `last_modified_by`, `last_modified_at`, `created_at`, `updated_at`) VALUES (0, 0, \'test\', \'\', 0, 0, 1, \'\', \'2022-07-25 12:14:28\', \'2022-07-25 12:14:28\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `c_lista` (`id_sede`, `id_program`, `nombre`, `script`, `is_dynamic`, `deleted`, `last_modified_by`, `last_modified_at`, `created_at`, `updated_at`) VALUES (0, 0, \'test\', \'\', 0, 0, 1, \'\', \'2022-07-25 12:14:28\', \'2022-07-25 12:14:28\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1904): CodeIgniter\Database\BaseConnection->query('INSERT INTO `c_lista` (`id_sede`, `id_program`, `nombre`, `script`, `is_dynamic`, `deleted`, `last_modified_by`, `last_modified_at`, `created_at`, `updated_at`) VALUES (:id_sede:, :id_program:, :nombre:, :script:, :is_dynamic:, :deleted:, :last_modified_by:, :last_modified_at:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(738): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(666): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\ExcelLector.php(35): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->exportar()
+10 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+11 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 12:30:28 --> Call to undefined method App\Models\ClistaModel::insert_id
+in SYSTEMPATH\Model.php on line 773.
+ 1 APPPATH\Controllers\ExcelLector.php(39): CodeIgniter\Model->__call('insert_id', [])
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->exportar()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 12:31:22 --> Call to undefined method App\Models\ClistaModel::insert_id
+in SYSTEMPATH\Model.php on line 773.
+ 1 APPPATH\Controllers\ExcelLector.php(39): CodeIgniter\Model->__call('insert_id', [])
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->exportar()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 12:31:42 --> Call to undefined method App\Models\ClistaModel::insert_id
+in SYSTEMPATH\Model.php on line 773.
+ 1 APPPATH\Controllers\ExcelLector.php(41): CodeIgniter\Model->__call('insert_id', [])
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->exportar()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 12:36:57 --> Undefined array key "email"
+in APPPATH\Controllers\ExcelLector.php on line 23.
+ 1 APPPATH\Controllers\ExcelLector.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "email"', 'APPPATH\\Controllers\\ExcelLector.php', 23)
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->exportar()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 12:39:31 --> move_uploaded_file(./layout_carga (1).xlsx): Failed to open stream: Resource temporarily unavailable
+in APPPATH\Controllers\ExcelLector.php on line 59.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'move_uploaded_file(./layout_carga (1).xlsx): Failed to open stream: Resource temporarily unavailable', 'APPPATH\\Controllers\\ExcelLector.php', 59)
+ 2 APPPATH\Controllers\ExcelLector.php(59): move_uploaded_file('C:\\xampp\\tmp\\php3144.tmp', 'FCPATH\\layout_carga (1).xlsx')
+ 3 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->recibe()
+ 4 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 12:50:12 --> Cannot access private property PhpOffice\PhpSpreadsheet\Worksheet\Worksheet::$title
+in APPPATH\Controllers\ExcelLector.php on line 84.
+ 1 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->recibe()
+ 2 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 3 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 12:51:00 --> Cannot access private property PhpOffice\PhpSpreadsheet\Worksheet\Worksheet::$title
+in APPPATH\Controllers\ExcelLector.php on line 84.
+ 1 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->recibe()
+ 2 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 3 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 12:52:22 --> Cannot access private property PhpOffice\PhpSpreadsheet\Worksheet\Worksheet::$title
+in APPPATH\Controllers\ExcelLector.php on line 84.
+ 1 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->recibe()
+ 2 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 3 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 12:53:49 --> Cannot access private property PhpOffice\PhpSpreadsheet\Worksheet\Worksheet::$title
+in APPPATH\Controllers\ExcelLector.php on line 84.
+ 1 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->recibe()
+ 2 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 3 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 12:55:48 --> Cannot access private property PhpOffice\PhpSpreadsheet\Worksheet\Worksheet::$title
+in APPPATH\Controllers\ExcelLector.php on line 86.
+ 1 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->recibe()
+ 2 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 3 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 16:43:00 --> Undefined array key "file"
+in APPPATH\Controllers\ExcelLector.php on line 70.
+ 1 APPPATH\Controllers\ExcelLector.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "file"', 'APPPATH\\Controllers\\ExcelLector.php', 70)
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->recibe()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 16:46:08 --> Undefined array key "file"
+in APPPATH\Controllers\ExcelLector.php on line 70.
+ 1 APPPATH\Controllers\ExcelLector.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "file"', 'APPPATH\\Controllers\\ExcelLector.php', 70)
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->recibe()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 16:46:10 --> Undefined array key "file"
+in APPPATH\Controllers\ExcelLector.php on line 70.
+ 1 APPPATH\Controllers\ExcelLector.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "file"', 'APPPATH\\Controllers\\ExcelLector.php', 70)
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->recibe()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 16:46:45 --> Undefined array key "file"
+in APPPATH\Controllers\ExcelLector.php on line 70.
+ 1 APPPATH\Controllers\ExcelLector.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "file"', 'APPPATH\\Controllers\\ExcelLector.php', 70)
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\ExcelLector->recibe()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ExcelLector))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 18:05:46 --> syntax error, unexpected token ")"
+in APPPATH\Controllers\ExcelLector.php on line 206.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(261): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\ExcelLector.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(239): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\ExcelLector')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\ExcelLector')
+ 4 SYSTEMPATH\CodeIgniter.php(846): class_exists('\\App\\Controllers\\ExcelLector', true)
+ 5 SYSTEMPATH\CodeIgniter.php(453): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 18:06:21 --> syntax error, unexpected token ")"
+in APPPATH\Controllers\ExcelLector.php on line 206.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(261): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\ExcelLector.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(239): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\ExcelLector')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\ExcelLector')
+ 4 SYSTEMPATH\CodeIgniter.php(846): class_exists('\\App\\Controllers\\ExcelLector', true)
+ 5 SYSTEMPATH\CodeIgniter.php(453): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-25 18:06:23 --> syntax error, unexpected token ")"
+in APPPATH\Controllers\ExcelLector.php on line 206.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(261): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\ExcelLector.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(239): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\ExcelLector')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\ExcelLector')
+ 4 SYSTEMPATH\CodeIgniter.php(846): class_exists('\\App\\Controllers\\ExcelLector', true)
+ 5 SYSTEMPATH\CodeIgniter.php(453): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
