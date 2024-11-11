@@ -1,0 +1,118 @@
+CRITICAL - 2024-10-31 10:56:07 --> syntax error, unexpected token "}"
+in APPPATH\Controllers\Alta.php on line 105.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(261): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\Alta.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(239): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Alta')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Alta')
+ 4 SYSTEMPATH\CodeIgniter.php(846): class_exists('\\App\\Controllers\\Alta', true)
+ 5 SYSTEMPATH\CodeIgniter.php(453): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-10-31 10:56:42 --> syntax error, unexpected token "}"
+in APPPATH\Controllers\Alta.php on line 105.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(261): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\Alta.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(239): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Alta')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Alta')
+ 4 SYSTEMPATH\CodeIgniter.php(846): class_exists('\\App\\Controllers\\Alta', true)
+ 5 SYSTEMPATH\CodeIgniter.php(453): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-10-31 21:03:26 --> Class "chillerlan\QRCode\QRCode" not found
+in APPPATH\Controllers\Qr.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Qr->create()
+ 2 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr))
+ 3 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-10-31 21:04:17 --> Class "chillerlan\QRCode\QRCode" not found
+in APPPATH\Controllers\Qr.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Qr->create()
+ 2 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr))
+ 3 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-10-31 21:07:00 --> Class "chillerlan\QRCode\QRCode" not found
+in APPPATH\Controllers\Qr.php on line 27.
+ 1 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Qr->create()
+ 2 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr))
+ 3 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-10-31 21:07:20 --> Class "chillerlan\QRCode\QRCode" not found
+in APPPATH\Controllers\Qr.php on line 28.
+ 1 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Qr->create()
+ 2 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr))
+ 3 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-10-31 21:13:17 --> Class "chillerlan\QRCode\QRCode" not found
+in APPPATH\Controllers\Qr.php on line 28.
+ 1 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Qr->create()
+ 2 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr))
+ 3 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-10-31 21:13:19 --> Class "chillerlan\QRCode\QRCode" not found
+in APPPATH\Controllers\Qr.php on line 28.
+ 1 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Qr->create()
+ 2 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr))
+ 3 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-10-31 21:15:13 --> Class "chillerlan\Settings\SettingsContainerAbstract" not found
+in FCPATH\vendor\php-qrcode-main\src\QROptions.php on line 19.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(284): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(261): CodeIgniter\Autoloader\Autoloader->includeFile('FCPATH\\vendor\\php-qrcode-main\\src\\QROptions.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(239): CodeIgniter\Autoloader\Autoloader->loadInNamespace('chillerlan\\QRCode\\QROptions')
+ 4 FCPATH\vendor\php-qrcode-main\src\QRCode.php(58): CodeIgniter\Autoloader\Autoloader->loadClass('chillerlan\\QRCode\\QROptions')
+ 5 APPPATH\Controllers\Qr.php(28): chillerlan\QRCode\QRCode->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Qr->create()
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-10-31 21:15:13 --> Class "chillerlan\Settings\SettingsContainerAbstract" not found
+in FCPATH\vendor\php-qrcode-main\src\QROptions.php on line 19.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(284): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(261): CodeIgniter\Autoloader\Autoloader->includeFile('FCPATH\\vendor\\php-qrcode-main\\src\\QROptions.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(239): CodeIgniter\Autoloader\Autoloader->loadInNamespace('chillerlan\\QRCode\\QROptions')
+ 4 FCPATH\vendor\php-qrcode-main\src\QRCode.php(58): CodeIgniter\Autoloader\Autoloader->loadClass('chillerlan\\QRCode\\QROptions')
+ 5 APPPATH\Controllers\Qr.php(28): chillerlan\QRCode\QRCode->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Qr->create()
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-10-31 21:15:14 --> Class "chillerlan\Settings\SettingsContainerAbstract" not found
+in FCPATH\vendor\php-qrcode-main\src\QROptions.php on line 19.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(284): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(261): CodeIgniter\Autoloader\Autoloader->includeFile('FCPATH\\vendor\\php-qrcode-main\\src\\QROptions.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(239): CodeIgniter\Autoloader\Autoloader->loadInNamespace('chillerlan\\QRCode\\QROptions')
+ 4 FCPATH\vendor\php-qrcode-main\src\QRCode.php(58): CodeIgniter\Autoloader\Autoloader->loadClass('chillerlan\\QRCode\\QROptions')
+ 5 APPPATH\Controllers\Qr.php(28): chillerlan\QRCode\QRCode->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Qr->create()
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-10-31 21:17:28 --> Object of class CodeIgniter\HTTP\Response could not be converted to string
+in APPPATH\Controllers\Qr.php on line 33.
+ 1 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Qr->create()
+ 2 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr))
+ 3 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-10-31 21:17:36 --> Object of class CodeIgniter\HTTP\Response could not be converted to string
+in APPPATH\Controllers\Qr.php on line 33.
+ 1 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Qr->create()
+ 2 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr))
+ 3 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-10-31 21:17:37 --> Object of class CodeIgniter\HTTP\Response could not be converted to string
+in APPPATH\Controllers\Qr.php on line 33.
+ 1 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Qr->create()
+ 2 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr))
+ 3 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-10-31 21:18:52 --> base64_encode(): Argument #1 ($string) must be of type string, CodeIgniter\HTTP\Response given
+in APPPATH\Controllers\Qr.php on line 33.
+ 1 APPPATH\Controllers\Qr.php(33): base64_encode(Object(CodeIgniter\HTTP\Response))
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Qr->create()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-10-31 21:19:50 --> Object of class CodeIgniter\HTTP\Response could not be converted to string
+in APPPATH\Controllers\Qr.php on line 35.
+ 1 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Qr->create()
+ 2 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr))
+ 3 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
