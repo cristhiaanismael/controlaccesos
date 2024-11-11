@@ -18,11 +18,15 @@ class genera{
         let table='';
         for(let i=0; i<data.length; i++) {
             table+=`<tr>
+                        <td>${data[i].id_usuario}</td>
+
                         <td>${data[i].nombre}</td>
                         <td>${data[i].apellido_pat}</td>
                         <td>${data[i].apellido_mat}</td>
                         <td>${data[i].matricula}</td>
                         <td>${data[i].programa}</td>
+                        <td><a data-toggle="modal" href="#myModal"><i class='fa fa-qrcode'></i></a href='#'></td>
+
                 </tr>`;
         
         }

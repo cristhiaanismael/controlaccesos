@@ -85,7 +85,10 @@ class Alta extends BaseController
     public function create(){
         $data=self::dataByTipo($this->request->getPost('tipo_usuario'));
         $insert=$this->model->create($data);
-        return $insert;
+        $response=['status'=>'success',
+              'data'=>$data,
+            'msj'=>''];
+        echo json_encode($response);
     
 
     }
@@ -95,8 +98,9 @@ class Alta extends BaseController
         $response=['status'=>'success',
                   'data'=>$data,
                 'msj'=>''];
+                
         echo json_encode($response);
-        return $data;
+        die();
     
 
     }

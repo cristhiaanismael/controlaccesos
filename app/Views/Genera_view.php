@@ -76,11 +76,15 @@
                         <table id="myTable" class="display">
                             <thead>
                                 <tr>
-                                    <th>Column 1</th>
-                                    <th>Column 2</th>
-                                    <th>Column 3</th>
-                                    <th>Column 4</th>
-                                    <th>Column 5</th>
+                                    <th>#Id</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido Pat</th>
+                                    <th>Apellido Mat</th>
+                                    <th>Matricula</th>
+                                    <th>Programa</th>
+                                    <th>Options</th>
+
+
                                 </tr>
                             </thead>
                             <tbody id='tbody'>
@@ -93,7 +97,93 @@
               
     </div>
 
+
+
+    
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Crear acceso</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body" style=''>
+            <div class=''>
+                  <div class='container'>
+
+                        <div class="card mx-auto" style="width: 18rem;">
+                          <img class="card-img-top" src="https://blog.tcea.org/wp-content/uploads/2022/05/qrcode_tcea.org-1.png" alt="Card image cap">
+                            <div class="card-body">
+                              <h5 class="card-title">Jhon Doe</h5>
+                              <p class="card-text" style=' '>
+                                <strong>Hora de entrada:</strong> 13:00
+                                <br>
+                                <strong>Hora Salida:</strong> 10:00
+
+
+
+                              </p>
+                              <a href="#" class="btn btn-primary">Descargar <i class='fa fa-download'></i></a>
+                              <a href="#" class="btn btn-danger">Desactivar</a><br>
+                              <a href="#" class="btn btn-success mt-3">Generar Nuevo</a><br>
+                              <label>Permanente</label>
+                              <input type="radio" name='caducidad' >
+
+                              <label>Temporal</label>
+                              <input type="radio" name='caducidad' >
+
+
+
+
+                              <label>Fecha Entrada</label>
+                              <input class="form-control" type='date' name="fecha_entry">
+                              <label>Hora Entrada</label>
+                              <input class="form-control" name="hour_ini" type='time'>
+
+                              <label>Fecha salida</label>
+                              <input class="form-control" type='date' name="fecha_exit">
+
+
+                              <label>Hora salida</label>
+                              <input class="form-control" name="hour_exit" type='time'>
+
+                              <button class='btn btn-block btn-success mt-3'>Crear</button>
+
+
+
+
+
+                            </div>
+                        </div>
+
+
+                   
+                  </div>
+            </div>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
 </div>
+
+
 
 
 </body>
