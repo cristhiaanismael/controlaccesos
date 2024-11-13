@@ -51,9 +51,14 @@ $routes->get('/alta/read', 'Alta::read');
 
 
 $routes->get('/qr', 'Qr::index');
+$routes->get('/descarga', 'Qr::descarga');
 
 $routes->get('/genera', 'Genera::index');
-$routes->get('/create', 'Qr::create');
+
+
+$routes->post('/create', 'Qr::create');
+$routes->post('/verify', 'Qr::recupera');
+
 
 
 

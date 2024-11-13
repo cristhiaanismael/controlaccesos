@@ -57,7 +57,7 @@ class Alta extends BaseController
                 'tipo_usuario'=>$tipo_usuario,
                 'identificador'=>$identificador,
                 'aquien_v'=>$avisita,
-                'priviende_de'=>$donde,
+                'proviene_de'=>$donde,
                 'motivo'=>$motivo,
                 'created_by'=>$this->id_user_sesion,
            ];

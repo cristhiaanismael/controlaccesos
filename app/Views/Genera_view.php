@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.3/css/responsive.dataTables.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- jQuery library -->
 
@@ -19,7 +21,11 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="//cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap4.js"></script>
 
+    <script src="https://cdn.datatables.net/responsive/3.0.3/js/dataTables.responsive.js"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.3/js/responsive.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 
     <!-- STYLES -->
      <style>
@@ -32,6 +38,11 @@
 
 .form-control {
   padding-left: 30px!important;
+}
+
+div.dt-container {
+  
+    width: 100%;
 }
      </style>
 
@@ -70,10 +81,12 @@
             </div>
             <div class='col-md-4'></div>
 
+            <div class='col-md-12'></div>
+
                 <div class='col-md-12  mt-3'>
                     <div class="row">
 
-                        <table id="myTable" class="display">
+                        <table id="myTable" class="table table-striped table-bordered nowrap" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>#Id</th>
@@ -117,42 +130,41 @@
                   <div class='container'>
 
                         <div class="card mx-auto" style="width: 18rem;">
-                          <img class="card-img-top" src="https://blog.tcea.org/wp-content/uploads/2022/05/qrcode_tcea.org-1.png" alt="Card image cap">
+                          <img class="card-img-top" src='https://preregidiomas.uteq.edu.mx/Images/Error.png' style='display:none'  id='qr_imagen' alt="Card image cap">
+                            <a id="downloadLink" href="#" style="display: none;" download="imagen_de_ejemplo.png"></a>
                             <div class="card-body">
-                              <h5 class="card-title">Jhon Doe</h5>
-                              <p class="card-text" style=' '>
-                                <strong>Hora de entrada:</strong> 13:00
+                              <h5 class="card-title" id='nombre_completo'></h5>
+                              <input type="hidden" id='id_usuario_val'>
+                              <p class="card-text" id='' >
+                                <strong>Creado:</strong> <b id='creted_at' ></b>
                                 <br>
-                                <strong>Hora Salida:</strong> 10:00
-
-
-
+                                <strong id='status'></strong> 
                               </p>
-                              <a href="#" class="btn btn-primary">Descargar <i class='fa fa-download'></i></a>
-                              <a href="#" class="btn btn-danger">Desactivar</a><br>
-                              <a href="#" class="btn btn-success mt-3">Generar Nuevo</a><br>
+                              <button class="btn btn-primary" id='btnDescargar' onclick='generaObj.dowloadImg()'>Descargar <i class='fa fa-download'></i></button>
+                              <button class="btn btn-danger" id='btnDesactivar' onclick='generaObj.desactivar()'>Desactivar</button><br>
+                              <button class="btn btn-success mt-3" id='bntNuevo'>Generar Nuevo</button><br>
                               <label>Permanente</label>
-                              <input type="radio" name='caducidad' >
+                              <input type="radio" name='caducidad' checked='true' onclick="$('#extras').hide()" >
 
                               <label>Temporal</label>
-                              <input type="radio" name='caducidad' >
+                              <input type="radio" name='caducidad' onclick="$('#extras').show()" >
+
+                              <div id='extras' style='display:none'>
 
 
+                                  <label>Fecha Entrada</label>
+                                  <input class="form-control" type='date' name="fecha_entry" id="fecha_entry">
+                                  <label>Hora Entrada</label>
+                                  <input class="form-control" name="hour_ini" id="hour_ini" type='time'>
+
+                                  <label>Fecha salida</label>
+                                  <input class="form-control" type='date' name="fecha_exit" id="fecha_exit">
 
 
-                              <label>Fecha Entrada</label>
-                              <input class="form-control" type='date' name="fecha_entry">
-                              <label>Hora Entrada</label>
-                              <input class="form-control" name="hour_ini" type='time'>
-
-                              <label>Fecha salida</label>
-                              <input class="form-control" type='date' name="fecha_exit">
-
-
-                              <label>Hora salida</label>
-                              <input class="form-control" name="hour_exit" type='time'>
-
-                              <button class='btn btn-block btn-success mt-3'>Crear</button>
+                                  <label>Hora salida</label>
+                                  <input class="form-control" name="hour_exit" id="hour_exit" type='time'>
+                              </div>
+                              <button class='btn btn-block btn-success mt-3' id='crearBtn'>Crear</button>
 
 
 
