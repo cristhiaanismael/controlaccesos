@@ -86,27 +86,14 @@ div.dt-container {
                 <div class='col-md-12  mt-3'>
                     <div class="row">
 
-                        <table id="myTable" class="table table-striped table-bordered nowrap" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>#Id</th>
-                                    <th>Nombre</th>
-                                    <th>Apellido Pat</th>
-                                    <th>Apellido Mat</th>
-                                    <th>Matricula</th>
-                                    <th>Programa</th>
-                                    <th>Options</th>
-
-
-                                </tr>
-                            </thead>
-                            <tbody id='tbody'>
+                        <table id="myTable" class="myTable table table-striped table-bordered nowrap" style="width:100%">
+                          
+                            
                               
-                            </tbody>
                         </table>
-
                     </div>
                 </div>
+              
               
     </div>
 
@@ -142,7 +129,7 @@ div.dt-container {
                               </p>
                               <button class="btn btn-primary" id='btnDescargar' onclick='generaObj.dowloadImg()'>Descargar <i class='fa fa-download'></i></button>
                               <button class="btn btn-danger" id='btnDesactivar' onclick='generaObj.desactivar()'>Desactivar</button><br>
-                              <button class="btn btn-success mt-3" id='bntNuevo'>Generar Nuevo</button><br>
+                              <button class="btn btn-success mt-3" id='bntNuevo'onclick='generaObj.regenerate()'>Generar Nuevo</button><br>
                               <label>Permanente</label>
                               <input type="radio" name='caducidad' checked='true' onclick="$('#extras').hide()" >
 

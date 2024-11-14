@@ -1,9 +1,10 @@
 class genera{
 
     getUsers(){
+        let tipo_usuario=$("#tipo_usuario").val();  
         $.ajax({
             type: 'GET',
-            url: './alta/read/?tipo='+1,
+            url: './alta/read/?tipo='+(tipo_usuario== 0 ? 1 : tipo_usuario),
             success: function(response, textStatus, jqXHR){
                 let res=JSON.parse(response)
                 genera.tabla(res.data);
@@ -13,24 +14,112 @@ class genera{
     
         });
     }
-    static tabla(data){
+ 
+    static tabla(data) {
 
-        let table='';
-        for(let i=0; i<data.length; i++) {
-            table+=`<tr>
-                        <td>${data[i].id_usuario}</td>
-
-                        <td id='td_nombre'>${data[i].nombre}</td>
-                        <td id='td_apepat'>${data[i].apellido_pat}</td>
-                        <td id='td_apemat'>${data[i].apellido_mat}</td>
-                        <td>${data[i].matricula}</td>
-                        <td>${data[i].programa}</td>
-                        <td><a  href="#myModal" onclick='generaObj.recuperaQr(${data[i].id_usuario})' ><i class='fa fa-qrcode'></i></a href='#'></td>
-
-                </tr>`;
         
+        var datatable= new DataTable('#myTable');
+        datatable.destroy();
+        let table='';
+        if($('#tipo_usuario').val()==1 || $('#tipo_usuario').val()==0){
+             table+=`
+                    <thead>
+                                    <tr>
+                                        <th>#Id</th>
+                                        <th>Nombre</th>
+                                        <th>Apellido Pat</th>
+                                        <th>Apellido Mat</th>
+                                        <th>Matricula</th>
+                                        <th>Programa</th>
+                                        <th>Options</th>
+                                    </tr>
+                                </thead>
+                                <tbody id='tbody'>
+            `;
+                for(let i=0; i<data.length; i++) {
+                    table+=`<tr>
+                                <td>${data[i].id_usuario}</td>
+
+                                <td id='td_nombre'>${data[i].nombre}</td>
+                                <td id='td_apepat'>${data[i].apellido_pat}</td>
+                                <td id='td_apemat'>${data[i].apellido_mat}</td>
+                                <td>${data[i].matricula}</td>
+                                <td>${data[i].programa}</td>
+                                <td><a  href="#myModal" onclick='generaObj.recuperaQr(${data[i].id_usuario})' ><i class='fa fa-qrcode'></i></a href='#'></td>
+
+                        </tr>`;
+                
+                }
+        }else if($('#tipo_usuario').val() ==2){
+            table+=`
+            <thead>
+                            <tr>
+                                 <th>#Id</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido Pat</th>
+                                    <th>Apellido Mat</th>
+                                    <th>Identificador</th>
+                                    <th>A quien visita</th>
+                                    <th>De donde nos visita</th>
+                                    <th>Motivo</th>
+                                    <th>Options</th>
+
+                            </tr>
+                        </thead>
+                        <tbody id='tbody'>
+    `;
+            for(let i=0; i<data.length; i++) {
+                table+=`<tr>
+                            <td>${data[i].id_usuario}</td>
+
+                            <td id='td_nombre'>${data[i].nombre}</td>
+                            <td id='td_apepat'>${data[i].apellido_pat}</td>
+                            <td id='td_apemat'>${data[i].apellido_mat}</td>
+                            <td>${data[i].identificador}</td>
+                            <td>${data[i].aquien_v}</td>
+                            <td>${data[i].proviene_de}</td>
+                            <td>${data[i].motivo}</td>
+                            <td><a  href="#myModal" onclick='generaObj.recuperaQr(${data[i].id_usuario})' ><i class='fa fa-qrcode'></i></a href='#'></td>
+
+                    </tr>`;
+            
+            }
+        }else if($('#tipo_usuario').val() ==3){
+            table+=`
+            <thead>
+                            <tr>
+                                 <th>#Id</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido Pat</th>
+                                    <th>Apellido Mat</th>
+                                    <th>No# empleado</th>
+                                    <th>Area</th>
+                                    <th>Options</th>
+
+                            </tr>
+                        </thead>
+                        <tbody id='tbody'>
+    `;
+            for(let i=0; i<data.length; i++) {
+                table+=`<tr>
+                            <td>${data[i].id_usuario}</td>
+
+                            <td id='td_nombre'>${data[i].nombre}</td>
+                            <td id='td_apepat'>${data[i].apellido_pat}</td>
+                            <td id='td_apemat'>${data[i].apellido_mat}</td>
+                            <td>${data[i].n_empleado}</td>
+                            <td>${data[i].area}</td>
+                            <td><a  href="#myModal" onclick='generaObj.recuperaQr(${data[i].id_usuario})' ><i class='fa fa-qrcode'></i></a href='#'></td>
+
+                    </tr>`;
+            
+            }
         }
-        $('#tbody').html(table)
+
+
+        table+=`</tbody>`;
+        $('#myTable').html(table);
+
         setTimeout(function(){
             $('#myTable').DataTable({
                 responsive: true
@@ -64,7 +153,7 @@ class genera{
         };
         img.src = $('#qr_imagen').attr('src') ;
     }
-    desactivar(){
+    desactivar(cerrar=true){
         let params = {
             'id_usuario': $('#id_usuario_val').val(),
         };
@@ -77,7 +166,9 @@ class genera{
                 let res=JSON.parse(response);
 
                 if(res.status=='success'){
-                    $('#myModal').modal('hide');
+                    if(cerrar){
+                        $('#myModal').modal('hide');
+                    }
                     $.notify("El código QR ha sido desactivado con éxito.",  "success");
                 }else{
                 }
@@ -121,6 +212,14 @@ class genera{
         });
     }
 
+    regenerate(){
+        $.notify("Espere un momento mientras regeneramos el QR", "info");
+        this.desactivar(false);
+
+        setTimeout(()=>{
+         this.generaQr();  
+        },3000);
+    }
 
     recuperaQr(id_usuario){
         genera.reset();
@@ -162,4 +261,5 @@ let generaObj=new genera();
 $(document).ready(()=>{
     generaObj.getUsers();
     $('#crearBtn').click(()=>generaObj.generaQr());
+    $('#tipo_usuario').change(()=>generaObj.getUsers());
 });
