@@ -25,7 +25,7 @@
 
     <script src="https://cdn.datatables.net/responsive/3.0.3/js/dataTables.responsive.js"></script>
     <script src="https://cdn.datatables.net/responsive/3.0.3/js/responsive.dataTables.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="./public/resources/js/notify.min.js"></script>
 
     <!-- STYLES -->
      <style>

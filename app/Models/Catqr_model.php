@@ -43,12 +43,23 @@ class Catqr_model extends Model
     public function get_active($where=false){
 
         $builder = $this->db->table('cat_qr')
-            ->select('id_qr, code, id_usuario, img,  date_entry, date_exit, hour_entry, hour_exit,created_at')
+            ->select('id_qr, code, id_usuario, img, activo,  date_entry, date_exit, hour_entry, hour_exit,created_at')
             ->where('id_usuario', $where['id_usuario'])
             ->where('activo', '1');
         $query = $builder->get();
         $codes = $query->getResult();
         return $codes;
+    }
+
+    public function desactivar($id_usuario=false){
+        $data = [
+            'activo'  => 0,
+        ];
+
+        $builder = $this->db->table('cat_qr');
+        $builder->where('id_usuario', $id_usuario);
+        $builder->update($data);
+            return true;
     }
  
 

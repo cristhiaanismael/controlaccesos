@@ -45,6 +45,8 @@ class genera{
         $('#fecha_exit').val('');
         $('#hour_exit').val('');
         $('#creted_at').html('');
+        $('#crearBtn').removeAttr('disabled','disabled');
+
     }
     dowloadImg(){
         var img = new Image();
@@ -63,7 +65,27 @@ class genera{
         img.src = $('#qr_imagen').attr('src') ;
     }
     desactivar(){
-        
+        let params = {
+            'id_usuario': $('#id_usuario_val').val(),
+        };
+
+        $.ajax({
+            type: 'POST',
+            data: params,
+            url: './desactivar',
+            success: function(response, textStatus, jqXHR){
+                let res=JSON.parse(response);
+
+                if(res.status=='success'){
+                    $('#myModal').modal('hide');
+                    $.notify("El código QR ha sido desactivado con éxito.",  "success");
+                }else{
+                }
+                console.log(res);
+            }
+            ,error : function(xhr, status) {
+            }
+        });
     }
     generaQr(){
         let params = {
@@ -87,6 +109,7 @@ class genera{
                     $('#bntNuevo').removeAttr('disabled');
                     $('#btnDesactivar').removeAttr('disabled');
                     $('#btnDescargar').removeAttr('disabled');
+                    $('#creted_at').html(res.data.created_at)
                 }else{
                     $('#qr_imagen').hide()
 
@@ -119,6 +142,7 @@ class genera{
                     $('#status').html((res.data.activo == 1 ? 'Activo' : 'Inactivo') )
                     $('#creted_at').html(res.data.created_at)
 
+                    $('#crearBtn').attr('disabled','disabled');
 
                 }else{
                     $('#qr_imagen').hide()

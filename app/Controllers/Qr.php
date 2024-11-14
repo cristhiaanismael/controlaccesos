@@ -56,6 +56,16 @@ class Qr extends BaseController
 
         return $exist;
     }
+    public function desactivar(){
+        $id_usuario=$this->request->getPost('id_usuario');
+        $upd=$this->model->desactivar($id_usuario);
+        $response=['status'=>'success',
+        'data'=>$upd,
+        'msj'=>'El QR se desactivo'];
+        echo json_encode($response);
+        die();
+
+    }
 
     public function create(){
         $id_usuario=$this->request->getPost('id_usuario');
@@ -88,6 +98,7 @@ class Qr extends BaseController
                                 "id_usuario"=>$id_usuario ,
                                 "img"=>$image ,
                                 "activo"=>'1' ,
+                                "created_at"=> date("Y-m-d H:i:s") 
                             ];
                         }else{
                             $data=[
@@ -99,6 +110,8 @@ class Qr extends BaseController
                                 'hour_entry' => $this->request->getPost('hour_entry') ,
                                 'date_exit' => $this->request->getPost('date_exit') ,
                                 'hour_exit' => $this->request->getPost('hour_exit') ,
+                                "created_at"=> date("Y-m-d H:i:s") 
+
                             ];
                         }
                         $this->model->create($data);

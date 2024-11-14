@@ -51,7 +51,7 @@ $routes->get('/alta/read', 'Alta::read');
 
 
 $routes->get('/qr', 'Qr::index');
-$routes->get('/descarga', 'Qr::descarga');
+$routes->post('/desactivar', 'Qr::desactivar');
 
 $routes->get('/genera', 'Genera::index');
 
