@@ -17,8 +17,55 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./public/resources/js/notify.min.js"></script>
 
     <!-- STYLES -->
+     <style>
+        .mayus{
+            text-transform: uppercase;
+        }
+
+        .text {
+  font-size:28px;
+  font-family:helvetica;
+  font-weight:bold;
+  color:black;
+  text-transform:uppercase;
+}
+.parpadea {
+  
+  animation-name: parpadeo;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  -webkit-animation-name:parpadeo;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@-moz-keyframes parpadeo{  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes parpadeo {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+   100% { opacity: 1.0; }
+}
+
+@keyframes parpadeo {  
+  0% { opacity: 1.0; }
+   50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+
+
+     </style>
 
 
 </head>
@@ -68,57 +115,30 @@
         <div class="col-md-3"><h1>Bienvenido </h1></div>
         <div class="col-md-3"></div>
 
-        
         <div class='col-md-4'></div>
+
         <div class='col-md-4' id='welcom_participante' style='display:none'>
-            <h5 id='name_participante' ><i class="fa fa-mortar-board"></i> Cristhian Ismael Ramirez Urbano </h5>
-            <h5 id='programa'  style='display'><i class="	fa fa-address-card-o"></i> <i>Programa PSL-4 </i></h5>
-            <!--<h5><i class="	fa fa-address-card-o"></i> 13:35 </h5>-->
+            <h5 class='mayus'><i class="fa fa-mortar-board"></i><i id='name_participante'>Cristhian Ismael Ramirez Urbano </i></h5>
+            <h5 class='mayus'><i class="fa fa-address-card-o"></i> <i id='programa'  >Programa PSL-4 </i></h5>
         </div>
-
-
-        <div class='col-md-4' id='welcom_participante'>
-            <h5 style=''><i class="fa fa-black-tie"></i> Armando Olvera </h5>
-            <h5 id=''  style='display'><i class="fa fa-building"></i> <i>Sistemas </i></h5>
-            <h5><i class="	fa fa-briefcase"></i> Soporte </h5>
+        <div class='col-md-4' id='welcom_empleado' style='display:none' >
+            <h5 class='mayus'><i class="fa fa-black-tie"></i> <i id='name_empleado'>Armando Olvera</i> </h5>
+            <h5 class='mayus'><i class="fa fa-building"></i>Area: <i class='mayus' id='depto'>Sistemas </i></h5>
+            <h5 class='mayus'><i class="fa fa-briefcase"></i>Puesto: <i class='mayus' id='puesto'> Soporte</i> </h5>
         </div>
-
-        <div class='col-md-4' id='welcom_visitante' style='display:none'>
-            <h5 style=':'><i class="fa fa-user-secret"></i> Provedor walmart </h5>
-            <h5 id='programa'  style='display'><i class="	fa fa-address-card-o"></i> <i>Programa PSL-4 </i></h5>
-                <!--<h5><i class="	fa fa-address-card-o"></i> 13:35 </h5>-->
-        </div>
-
-
-
-
-
-
-
-        <div class='col-md-4'></div>
-
-
-        <!--<div id='welcom_visitante'></div>
-
-
-        <div class='col-md-4'  id='welcom_empleado' style='display:'>
-            <h5 style=':'><i class="fa fa-black-tie"></i> Armando Olvera </h5>
-        </div>
-        <div class='col-md-4'>
-
-        <h5 style=':'><i class="fa fa-user-secret"></i> Provedor walmart </h5>
+        <div class='col-md-4' id='welcom_visitante' style='display:none' >
+            <h5 class='mayus' ><i class="fa fa-user-secret"></i><i id='name_visita'> Provedor walmart</i> </h5>
+            <h5><i class="fa fa-male"></i> Visita a: <i class='mayus' id='visita'>Maria</i></h5>
+            <h5><i class="fa fa-question-circle"></i> Motivo: <i class='mayus' id='motivo'>Empanadas</i></h5>
 
         </div>
         <div class='col-md-4'></div>
-        <div class='col-md-4'>
-            <h5  style=''><i class="	fa fa-address-card-o"></i> <i>Programa PSL-4 </i></h5>
-        </div>
 
         <div class='col-md-4'></div>
+        <div class='col-md-4' id='hour' style='display:none'>
+                            <h3  class="parpadea text"><i class="fa fa-clock-o"></i><i id='datescanner'>13:35</i> </h3>
+        </div>
         <div class='col-md-4'></div>
-        <div class='col-md-4'>
-            <h5  style=''><i class="	fa fa-address-card-o"></i> 13:35 </h5>
-        </div>-->
         
     </div>
     

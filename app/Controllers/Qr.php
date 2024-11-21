@@ -128,7 +128,7 @@ class Qr extends BaseController
                                         if($fecha_actual<= $fecha_exit_bd->format('Y-m-d') ){
                                             //pasa
                                             $insert=$this->registraLog($data_code[0]->id_qr, 'ENTRADA');
-                                            $response=['status' =>'Success',
+                                            $response=['status' =>'success',
                                             'data' =>$data_code[0],
                                             'msg' =>'Se registro su entrada correctamente',
                                             'extras' =>$insert . ' Su entrada esta dentro de la fecha de salida correcta' ];
@@ -141,7 +141,7 @@ class Qr extends BaseController
                                     }else{
                                         //pasa
                                         $insert=$this->registraLog($data_code[0]->id_qr, 'ENTRADA');
-                                        $response=['status' =>'Success',
+                                        $response=['status' =>'success',
                                         'data' =>$data_code[0],
                                         'msg' =>'Se registro su entrada correctamente',
                                         'extras' =>$insert. 'no tiene fechas de salida'];
@@ -155,14 +155,14 @@ class Qr extends BaseController
                                 }
                         }else{
                             $insert=$this->registraLog($data_code[0]->id_qr, 'ENTRADA');
-                            $response=['status' =>'Success',
+                            $response=['status' =>'success',
                                        'data' =>$data_code[0],
                                        'msg' =>'Se registro su entrada correctamente',
                                        'extras' =>$insert];
                         }
                     }else{
                         $insert=$this->registraLog($data_code[0]->id_qr, 'SALIDA');
-                        $response=['status' =>'Success',
+                        $response=['status' =>'success',
                         'data' =>$data_code[0],
                         'msg' =>'Nos vemos pronto.',
                         'extras' =>$insert];
