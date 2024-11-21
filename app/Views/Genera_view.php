@@ -81,7 +81,26 @@ div.dt-container {
             </div>
             <div class='col-md-4'></div>
 
-            <div class='col-md-12'></div>
+            <div class='col-md-12'>
+              <br>
+              <div class='row'> 
+                <div class='col-md-4'></div>
+                <div class='col-md-4'></div>
+                <div class='col-md-4'>
+                  <button class='btn btn-info btn-block' onclick='generaObj.generaAll()'>Generar QR de los seleccionados</button>
+                </div>
+              </div>
+            </div>
+
+            <div class='col-md-12'>
+              <br>
+              <div class='row'> 
+                <div class='col-md-4'>
+                  <input type='checkbox' onclick='genera.selectAll()'> Seleccionar todos
+                </div>
+              </div>
+            </div>
+
 
                 <div class='col-md-12  mt-3'>
                     <div class="row">

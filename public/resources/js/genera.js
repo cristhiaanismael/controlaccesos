@@ -1,5 +1,7 @@
 class genera{
-
+    static selectAll(){
+        $('.checkbox').attr('checked','checked')
+    }
     getUsers(){
         let tipo_usuario=$("#tipo_usuario").val();  
         $.ajax({
@@ -38,7 +40,7 @@ class genera{
             `;
                 for(let i=0; i<data.length; i++) {
                     table+=`<tr>
-                                <td>${data[i].id_usuario}</td>
+                                <td><input type='checkbox' class='checkbox' name='seleccionado[]' value='${data[i].id_usuario}' >${data[i].id_usuario}</td>
 
                                 <td id='td_nombre'>${data[i].nombre}</td>
                                 <td id='td_apepat'>${data[i].apellido_pat}</td>
@@ -70,7 +72,7 @@ class genera{
     `;
             for(let i=0; i<data.length; i++) {
                 table+=`<tr>
-                            <td>${data[i].id_usuario}</td>
+                            <td><input type='checkbox' class='checkbox' name='seleccionado[]' value='${data[i].id_usuario}' >${data[i].id_usuario}</td>
 
                             <td id='td_nombre'>${data[i].nombre}</td>
                             <td id='td_apepat'>${data[i].apellido_pat}</td>
@@ -102,7 +104,7 @@ class genera{
     `;
             for(let i=0; i<data.length; i++) {
                 table+=`<tr>
-                            <td>${data[i].id_usuario}</td>
+                            <td><input type='checkbox' class='checkbox' name='seleccionado[]' value='${data[i].id_usuario}' >${data[i].id_usuario}</td>
 
                             <td id='td_nombre'>${data[i].nombre}</td>
                             <td id='td_apepat'>${data[i].apellido_pat}</td>
@@ -171,6 +173,39 @@ class genera{
                     }
                     $.notify("El código QR ha sido desactivado con éxito.",  "success");
                 }else{
+                }
+                console.log(res);
+            }
+            ,error : function(xhr, status) {
+            }
+        });
+    }
+    generaAll(){
+
+        let selectedItems = $('input[name="seleccionado[]"]:checked').map(function() {
+            return $(this).val();
+          }).get();
+        
+        let params = {
+            selectedItems
+        };
+        $.ajax({
+            type: 'POST',
+            data: params,
+            url: './createall',
+            success: function(response, textStatus, jqXHR){
+                let res=JSON.parse(response);
+
+                if(res.status=='success'){
+                    $('#qr_imagen').prop('src',res.data.img);
+                    $('#qr_imagen').show()
+                    $('#bntNuevo').removeAttr('disabled');
+                    $('#btnDesactivar').removeAttr('disabled');
+                    $('#btnDescargar').removeAttr('disabled');
+                    $('#creted_at').html(res.data.created_at)
+                }else{
+                    $('#qr_imagen').hide()
+
                 }
                 console.log(res);
             }

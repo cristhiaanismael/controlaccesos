@@ -46,16 +46,40 @@ class UserModel extends Model
         $res= $query->getResult();
         return $res;
     }
+
+
+    public function readById($id_usuario){
+        $query=$this->where('id_usuario', $id_usuario)
+                    ->get();
+
+        $res= $query->getResult();
+        return $res;
+    }
+    public function readByIdentificador($identificador){ 
+         $builder = $this->db->table('cat_qr qr')
+        ->select('qr.id_qr as id_qr, qr.id_usuario as qr_id_usuario, activo, date_entry, 
+                date_exit, hour_entry, hour_exit, idlog_scanner,
+                 log.id_qr as log_id_qr, date_scanner, type,
+                 us.id_usuario, nombre, apellido_pat, apellido_mat,
+                  matricula, programa, identificador, aquien_v,
+                   proviene_de, motivo, n_empleado, area, puesto, tipo_usuario')
+        ->join('logs_scanner log', 'log.id_qr=qr.id_qr', 'left')
+        ->join('usuarios us', 'us.id_usuario=qr.id_usuario')
+        ->where('us.matricula', $identificador)
+        ->orWhere('us.n_empleado', $identificador)
+        ->where('qr.activo', '1')
+        ->orderBy('log.idlog_scanner', 'desc')
+        ->limit(1);
+
+        $query = $builder->get();
+        $codes = $query->getResult();
+        return $codes;
+    }
     public function delete_list($idlist){
         $this->where('', $idlist);
         $this->delete();
         $no = $this->affectedRows();
         return $no; 
     }
-
-    
-
-
-
 
 }

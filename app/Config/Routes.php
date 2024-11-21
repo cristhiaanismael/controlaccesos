@@ -35,8 +35,13 @@ $routes->set404Override();
 // route since we don't have to scan directories.
     //metodo get,post     //ruta que colo el usuaro     //contralador   // metodo
 $routes->get('/', 'Home::index');
-
 $routes->get('/prueba', 'Home::prueba');
+$routes->get('/prueba2', 'Prueba::index');
+
+
+//ruta nueva
+
+
 
 
 
@@ -48,16 +53,16 @@ $routes->post('/Login/process', 'Login::ProccesAuto');
 $routes->get('/alta', 'Alta::index');
 $routes->post('/alta/create', 'Alta::create');
 $routes->get('/alta/read', 'Alta::read');
+$routes->get('/genera', 'Genera::index');
 
 
 $routes->get('/qr', 'Qr::index');
 $routes->post('/desactivar', 'Qr::desactivar');
-
-$routes->get('/genera', 'Genera::index');
-
-
+$routes->post('/createall', 'Qr::createAll');
 $routes->post('/create', 'Qr::create');
 $routes->post('/verify', 'Qr::recupera');
+$routes->post('/scanner', 'Qr::scanner');
+
 
 
 

@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- jQuery library -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
 
     <!-- Popper JS -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -46,7 +45,7 @@
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-        <form>
+        <form id='form_scanner' action='#' >
             <br>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -65,35 +64,69 @@
 
 <div class="container">
     <div class="row">
-    <div class="col-md-5"></div>
-    <div class="col-md-3"><h1>Bienvenido </h1>
-    </div>
-    <div class="col-md-3"></div>
+        <div class="col-md-5"></div>
+        <div class="col-md-3"><h1>Bienvenido </h1></div>
+        <div class="col-md-3"></div>
 
-
+        
         <div class='col-md-4'></div>
-        <div class='col-md-4'>
-            <h5  style='display:none'><i class="fa fa-mortar-board"></i> Cristhian Ismael Ramirez Urbano </h5>
-            <h5 style='display:none'><i class="fa fa-black-tie"></i> Armando Olvera </h5>
-            <h5 style='display:'><i class="fa fa-user-secret"></i> Provedor walmart </h5>
-        </div>
-        <div class='col-md-4'></div>
-        <div class='col-md-4'></div>
-        <div class='col-md-4'>
-            <h5  style='display'><i class="	fa fa-address-card-o"></i> Programa PSL-4 </h5>
+        <div class='col-md-4' id='welcom_participante' style='display:none'>
+            <h5 id='name_participante' ><i class="fa fa-mortar-board"></i> Cristhian Ismael Ramirez Urbano </h5>
+            <h5 id='programa'  style='display'><i class="	fa fa-address-card-o"></i> <i>Programa PSL-4 </i></h5>
+            <!--<h5><i class="	fa fa-address-card-o"></i> 13:35 </h5>-->
         </div>
 
+
+        <div class='col-md-4' id='welcom_participante'>
+            <h5 style=''><i class="fa fa-black-tie"></i> Armando Olvera </h5>
+            <h5 id=''  style='display'><i class="fa fa-building"></i> <i>Sistemas </i></h5>
+            <h5><i class="	fa fa-briefcase"></i> Soporte </h5>
+        </div>
+
+        <div class='col-md-4' id='welcom_visitante' style='display:none'>
+            <h5 style=':'><i class="fa fa-user-secret"></i> Provedor walmart </h5>
+            <h5 id='programa'  style='display'><i class="	fa fa-address-card-o"></i> <i>Programa PSL-4 </i></h5>
+                <!--<h5><i class="	fa fa-address-card-o"></i> 13:35 </h5>-->
+        </div>
+
+
+
+
+
+
+
+        <div class='col-md-4'></div>
+
+
+        <!--<div id='welcom_visitante'></div>
+
+
+        <div class='col-md-4'  id='welcom_empleado' style='display:'>
+            <h5 style=':'><i class="fa fa-black-tie"></i> Armando Olvera </h5>
+        </div>
+        <div class='col-md-4'>
+
+        <h5 style=':'><i class="fa fa-user-secret"></i> Provedor walmart </h5>
+
+        </div>
+        <div class='col-md-4'></div>
+        <div class='col-md-4'>
+            <h5  style=''><i class="	fa fa-address-card-o"></i> <i>Programa PSL-4 </i></h5>
+        </div>
+
         <div class='col-md-4'></div>
         <div class='col-md-4'></div>
         <div class='col-md-4'>
-            <h5  style='display'><i class="	fa fa-address-card-o"></i> 13:35 </h5>
-        </div>
+            <h5  style=''><i class="	fa fa-address-card-o"></i> 13:35 </h5>
+        </div>-->
         
     </div>
     
     
 </div>
 </body>
+<script src='./public/resources/js/scaneo.js'></script>
+
 <script>
     $(document).ready(()=>{
         $('#qr').focus();

@@ -3,9 +3,9 @@ namespace App\Libraries;
 class Encript
 {
       
-	public static function decode($ciphertext, $key)
+	public static function decode($ciphertext)
 	{
-
+        $key=$_ENV['SECRET_KEY'];
             // Decodifica el texto encriptado
         $ciphertext = base64_decode($ciphertext);
         
