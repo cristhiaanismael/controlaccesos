@@ -11,6 +11,7 @@ class scaneo{
             data: params,
             url: './scanner',
             success: function(response, textStatus, jqXHR){
+                $("#qr").val('');
                 let res=JSON.parse(response);
                 console.log(res);
                 //1 participante
@@ -19,7 +20,16 @@ class scaneo{
 
                 if(res.status=='success'){
 
+                    
+
                     $.notify(res.msg, "success");
+
+                    if(res.data.type=='SALIDA'){
+                        $('#typelog').html('Hasta pronto')
+                    }else{
+                        $('#typelog').html('Bienvenido')
+
+                    }
 
 
                     if(res.data.tipo_usuario==1){
@@ -58,6 +68,8 @@ class scaneo{
                 }
             }
             ,error : function(xhr, status) {
+                $("#qr").val('');
+
             }
         });
     }
@@ -73,6 +85,7 @@ class scaneo{
         $('#name_visita').html( ''  )
         $('#visita').html( '' )
         $('#motivo').html( '')
+        $('#hour').hide();
 
     }
     static print_empleado(){

@@ -112,31 +112,31 @@
 <div class="container">
     <div class="row">
         <div class="col-md-5"></div>
-        <div class="col-md-3"><h1>Bienvenido </h1></div>
+        <div class="col-md-3"><h1 id='typelog'>Bienvenido </h1></div>
         <div class="col-md-3"></div>
 
         <div class='col-md-4'></div>
 
         <div class='col-md-4' id='welcom_participante' style='display:none'>
-            <h5 class='mayus'><i class="fa fa-mortar-board"></i><i id='name_participante'>Cristhian Ismael Ramirez Urbano </i></h5>
-            <h5 class='mayus'><i class="fa fa-address-card-o"></i> <i id='programa'  >Programa PSL-4 </i></h5>
+            <h5 class='mayus'><i class="fa fa-mortar-board"></i><i id='name_participante'> </i></h5>
+            <h5 class='mayus'><i class="fa fa-address-card-o"></i> <i id='programa'  > </i></h5>
         </div>
         <div class='col-md-4' id='welcom_empleado' style='display:none' >
-            <h5 class='mayus'><i class="fa fa-black-tie"></i> <i id='name_empleado'>Armando Olvera</i> </h5>
-            <h5 class='mayus'><i class="fa fa-building"></i>Area: <i class='mayus' id='depto'>Sistemas </i></h5>
-            <h5 class='mayus'><i class="fa fa-briefcase"></i>Puesto: <i class='mayus' id='puesto'> Soporte</i> </h5>
+            <h5 class='mayus'><i class="fa fa-black-tie"></i> <i id='name_empleado'></i> </h5>
+            <h5 class='mayus'><i class="fa fa-building"></i>Area: <i class='mayus' id='depto'> </i></h5>
+            <h5 class='mayus'><i class="fa fa-briefcase"></i>Puesto: <i class='mayus' id='puesto'></i> </h5>
         </div>
         <div class='col-md-4' id='welcom_visitante' style='display:none' >
-            <h5 class='mayus' ><i class="fa fa-user-secret"></i><i id='name_visita'> Provedor walmart</i> </h5>
-            <h5><i class="fa fa-male"></i> Visita a: <i class='mayus' id='visita'>Maria</i></h5>
-            <h5><i class="fa fa-question-circle"></i> Motivo: <i class='mayus' id='motivo'>Empanadas</i></h5>
+            <h5 class='mayus' ><i class="fa fa-user-secret"></i><i id='name_visita'> </i> </h5>
+            <h5><i class="fa fa-male"></i> Visita a: <i class='mayus' id='visita'></i></h5>
+            <h5><i class="fa fa-question-circle"></i> Motivo: <i class='mayus' id='motivo'></i></h5>
 
         </div>
         <div class='col-md-4'></div>
 
         <div class='col-md-4'></div>
         <div class='col-md-4' id='hour' style='display:none'>
-                            <h3  class="parpadea text"><i class="fa fa-clock-o"></i><i id='datescanner'>13:35</i> </h3>
+                            <h3  class="parpadea text"><i class="fa fa-clock-o"></i><i id='datescanner'></i> </h3>
         </div>
         <div class='col-md-4'></div>
         

@@ -129,12 +129,12 @@ class Qr extends BaseController
                                             //pasa
                                             $insert=$this->registraLog($data_code[0]->id_qr, 'ENTRADA');
                                             $response=['status' =>'success',
-                                            'data' =>$data_code[0],
+                                            'data' =>$data_code=$this->model->get_code($code)[0],
                                             'msg' =>'Se registro su entrada correctamente',
                                             'extras' =>$insert . ' Su entrada esta dentro de la fecha de salida correcta' ];
                                         }else{
                                             $response=['status' =>false,
-                                            'data' =>$data_code[0],
+                                            'data' =>$data_code=$this->model->get_code($code)[0],
                                             'msg' =>'Acceso denegado: horario no permitido.',
                                             'extras' =>' Su entrada esta dentro de la fecha de salida correcta' ];
                                         }
@@ -142,28 +142,28 @@ class Qr extends BaseController
                                         //pasa
                                         $insert=$this->registraLog($data_code[0]->id_qr, 'ENTRADA');
                                         $response=['status' =>'success',
-                                        'data' =>$data_code[0],
+                                        'data' =>$data_code=$this->model->get_code($code)[0],
                                         'msg' =>'Se registro su entrada correctamente',
                                         'extras' =>$insert. 'no tiene fechas de salida'];
                                     }
                                 }else{
                                     //no pasa por fechas
                                     $response=['status' =>false,
-                                    'data' =>$data_code[0],
+                                    'data' =>$data_code=$this->model->get_code($code)[0],
                                     'msg' =>'Acceso denegado: su fecha de ingreso ha caducado',
                                     'extras' => 'Su qr tiene fechas de ingreso que ya no son validas'];
                                 }
                         }else{
                             $insert=$this->registraLog($data_code[0]->id_qr, 'ENTRADA');
                             $response=['status' =>'success',
-                                       'data' =>$data_code[0],
+                                       'data' =>$data_code=$this->model->get_code($code)[0],
                                        'msg' =>'Se registro su entrada correctamente',
                                        'extras' =>$insert];
                         }
                     }else{
                         $insert=$this->registraLog($data_code[0]->id_qr, 'SALIDA');
                         $response=['status' =>'success',
-                        'data' =>$data_code[0],
+                        'data' =>$data_code=$this->model->get_code($code)[0],
                         'msg' =>'Nos vemos pronto.',
                         'extras' =>$insert];
 
@@ -176,9 +176,12 @@ class Qr extends BaseController
             }else{
                 $accesobyidentificador=$this->modelUser->readByIdentificador($code);
                 if(isset($accesobyidentificador[0])){
-                        $insert=$this->registraLog($accesobyidentificador[0]->id_qr,($accesobyidentificador[0]->type=='' or $accesobyidentificador[0]->type=='SALIDA'  ? 'ENTRADA': 'SALIDA'));
+
+                    $tipoderegistro=($accesobyidentificador[0]->type=='' or $accesobyidentificador[0]->type=='SALIDA'  ? 'ENTRADA': 'SALIDA');
+
+                        $insert=$this->registraLog($accesobyidentificador[0]->id_qr,$tipoderegistro, $tipoderegistro);
                         $response=['status' =>'success',
-                        'data' =>$accesobyidentificador,
+                        'data' =>$accesobyidentificador[0],
                         'msg' =>'Bienvenido'];
                    
                 }else{
