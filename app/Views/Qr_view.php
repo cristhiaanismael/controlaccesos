@@ -88,6 +88,22 @@
   </div>
 </div>
 
+
+<div style='display:none'>
+<audio id="audio_error">
+        <source src="./public/resources/audio/error.mp3" type="audio/mp3">
+        Tu navegador no soporta la etiqueta de audio.
+    </audio>
+
+    <audio id="audio_success">
+        <source src="./public/resources/audio/login.mp3" type="audio/mp3">
+        Tu navegador no soporta la etiqueta de audio.
+    </audio>
+</div>
+
+
+
+
 <div class="container">
     <div class="row">
         <div class="col-md-3"></div>

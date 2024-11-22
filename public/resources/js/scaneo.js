@@ -1,6 +1,7 @@
 class scaneo{
     
     scaneoQr(){
+        $("#qr").prop("disabled", "disabled");
         let code=$("#qr").val();
         let params = {
             code
@@ -19,6 +20,7 @@ class scaneo{
                 //3 empleado
 
                 if(res.status=='success'){
+                    $('#audio_success')[0].play();
 
                     
 
@@ -62,13 +64,25 @@ class scaneo{
                     $('#hour').show();
 
 
+
                 }else{
                     $.notify(res.msg, "error");
+                    $('#audio_error')[0].play();
+
 
                 }
+
+                setTimeout(()=>{
+                    $('#qr').removeAttr('disabled');
+                    $('#qr').focus();
+                }, 800);
             }
             ,error : function(xhr, status) {
                 $("#qr").val('');
+                setTimeout(()=>{
+                    $('#qr').removeAttr('disabled');
+                    $('#qr').focus();
+                }, 500);
 
             }
         });
