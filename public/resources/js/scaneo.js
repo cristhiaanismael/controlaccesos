@@ -36,7 +36,7 @@ class scaneo{
                         $('#welcom_participante').show();
                         $('#welcom_empleado').hide();
                         $('#welcom_visitante').hide();
-                        scaneo.print_empleado(res.data)
+                        scaneo.print_participante(res.data)
 
 
                     }else if(res.data.tipo_usuario==2){
@@ -88,7 +88,7 @@ class scaneo{
         $('#hour').hide();
 
     }
-    static print_empleado(){
+    static print_participante(data){
         $('#name_participante').html(`${data.nombre} ${data.apellido_pat} ${data.apellido_mat} ` )
         $('#programa').html(`${data.programa}` )
 

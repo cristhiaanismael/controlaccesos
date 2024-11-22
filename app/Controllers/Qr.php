@@ -177,9 +177,15 @@ class Qr extends BaseController
                 $accesobyidentificador=$this->modelUser->readByIdentificador($code);
                 if(isset($accesobyidentificador[0])){
 
-                    $tipoderegistro=($accesobyidentificador[0]->type=='' or $accesobyidentificador[0]->type=='SALIDA'  ? 'ENTRADA': 'SALIDA');
+                    $tipoderegistro=null;
+                    if($accesobyidentificador[0]->type=='' or $accesobyidentificador[0]->type=='SALIDA'){
+                        $tipoderegistro='ENTRADA';
+                    }else{
+                        $tipoderegistro='SALIDA';
+                    }
 
-                        $insert=$this->registraLog($accesobyidentificador[0]->id_qr,$tipoderegistro, $tipoderegistro);
+
+                        $insert=$this->registraLog($accesobyidentificador[0]->id_qr,$tipoderegistro);
                         $response=['status' =>'success',
                         'data' =>$accesobyidentificador[0],
                         'msg' =>'Bienvenido'];
@@ -226,13 +232,21 @@ class Qr extends BaseController
             require 'vendor/autoload.php';
             $encript = new Encript();
         
-            $code=$encript->encode($id_usuario);
+            //$code=$encript->encode($id_usuario);
+
+            $code=base64_encode($id_usuario) .'/'.strtotime("now"). rand(100, 999);
+
             $response=['status'=>false,
                         'data'=>'',
                         'msj'=>'No realizo ninguna accion'];
         
 
                     try {
+
+                       /* $options = new QROptions([
+                            'size'      => 30,               // Tamaño del módulo (puedes incrementar para mayor resolución)
+                        ]);*/
+                        
 
                         $qrcode = new QRCode();
                         // Genera el código QR

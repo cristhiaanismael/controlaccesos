@@ -96,7 +96,7 @@ div.dt-container {
               <br>
               <div class='row'> 
                 <div class='col-md-4'>
-                  <input type='checkbox' onclick='genera.selectAll()'> Seleccionar todos
+                  <input type='checkbox' id='check_all' onclick='genera.selectAll()'> Seleccionar todos
                 </div>
               </div>
             </div>

@@ -3,6 +3,7 @@ class genera{
         $('.checkbox').attr('checked','checked')
     }
     getUsers(){
+        $('#check_all').prop("checked", false)
         let tipo_usuario=$("#tipo_usuario").val();  
         $.ajax({
             type: 'GET',
@@ -42,9 +43,9 @@ class genera{
                     table+=`<tr>
                                 <td><input type='checkbox' class='checkbox' name='seleccionado[]' value='${data[i].id_usuario}' >${data[i].id_usuario}</td>
 
-                                <td id='td_nombre'>${data[i].nombre}</td>
-                                <td id='td_apepat'>${data[i].apellido_pat}</td>
-                                <td id='td_apemat'>${data[i].apellido_mat}</td>
+                                <td id='td_nombre_${data[i].id_usuario}'>${data[i].nombre}</td>
+                                <td id='td_apepat_${data[i].id_usuario}'>${data[i].apellido_pat}</td>
+                                <td id='td_apemat_${data[i].id_usuario}'>${data[i].apellido_mat}</td>
                                 <td>${data[i].matricula}</td>
                                 <td>${data[i].programa}</td>
                                 <td><a  href="#myModal" onclick='generaObj.recuperaQr(${data[i].id_usuario})' ><i class='fa fa-qrcode'></i></a href='#'></td>
@@ -74,9 +75,9 @@ class genera{
                 table+=`<tr>
                             <td><input type='checkbox' class='checkbox' name='seleccionado[]' value='${data[i].id_usuario}' >${data[i].id_usuario}</td>
 
-                            <td id='td_nombre'>${data[i].nombre}</td>
-                            <td id='td_apepat'>${data[i].apellido_pat}</td>
-                            <td id='td_apemat'>${data[i].apellido_mat}</td>
+                            <td id='td_nombre_${data[i].id_usuario}'>${data[i].nombre}</td>
+                            <td id='td_apepat_${data[i].id_usuario}'>${data[i].apellido_pat}</td>
+                            <td id='td_apemat_${data[i].id_usuario}'>${data[i].apellido_mat}</td>
                             <td>${data[i].identificador}</td>
                             <td>${data[i].aquien_v}</td>
                             <td>${data[i].proviene_de}</td>
@@ -106,9 +107,9 @@ class genera{
                 table+=`<tr>
                             <td><input type='checkbox' class='checkbox' name='seleccionado[]' value='${data[i].id_usuario}' >${data[i].id_usuario}</td>
 
-                            <td id='td_nombre'>${data[i].nombre}</td>
-                            <td id='td_apepat'>${data[i].apellido_pat}</td>
-                            <td id='td_apemat'>${data[i].apellido_mat}</td>
+                            <td id='td_nombre_${data[i].id_usuario}'>${data[i].nombre}</td>
+                            <td id='td_apepat_${data[i].id_usuario}'>${data[i].apellido_pat}</td>
+                            <td id='td_apemat_${data[i].id_usuario}'>${data[i].apellido_mat}</td>
                             <td>${data[i].n_empleado}</td>
                             <td>${data[i].area}</td>
                             <td><a  href="#myModal" onclick='generaObj.recuperaQr(${data[i].id_usuario})' ><i class='fa fa-qrcode'></i></a href='#'></td>
@@ -140,17 +141,27 @@ class genera{
 
     }
     dowloadImg(){
+        let id=$('#id_usuario_val').val();
         var img = new Image();
         img.onload = function() {
             var canvas = document.createElement('canvas');
             var ctx = canvas.getContext('2d');
-            canvas.width = img.width;
-            canvas.height = img.height;
+            canvas.width = img.width * 1.5;
+            canvas.height = img.height * 1.5;
             ctx.drawImage(img, 0, 0);
+
+            // Agregar el texto antes de convertir a imagen
+            ctx.font = '15px Arial';  // Establece el tamaño de la fuente
+            ctx.fillStyle = 'black';  // Establece el color del texto
+            ctx.textAlign = 'center';  // Alineación horizontal
+            ctx.textBaseline = 'middle';  // Alineación vertical
+            
+            // Agregar texto en el centro del canvas
+            ctx.fillText($('#nombre_completo').html(), canvas.width / 2, 213);  // Ajusta las coordenadas según sea necesario
             var pngDataUrl = canvas.toDataURL('image/png');
             var link = document.createElement('a');
             link.href = pngDataUrl;
-            link.download = 'imagen.png';  // Nombre del archivo de la imagen
+            link.download = 'qr_'+id+ '.png';  // Nombre del archivo de la imagen
             link.click();
         };
         img.src = $('#qr_imagen').attr('src') ;
@@ -181,6 +192,7 @@ class genera{
         });
     }
     generaAll(){
+        $.notify("Espere un momento mientras generamos los QR", "info");
 
         let selectedItems = $('input[name="seleccionado[]"]:checked').map(function() {
             return $(this).val();
@@ -194,6 +206,8 @@ class genera{
             data: params,
             url: './createall',
             success: function(response, textStatus, jqXHR){
+                $(".notifyjs-corner").find('.notifyjs-wrapper').fadeOut();
+
                 let res=JSON.parse(response);
 
                 if(res.status=='success'){
@@ -208,6 +222,8 @@ class genera{
 
                 }
                 console.log(res);
+                $.notify("los QR's se han terminado de crear", "Success");
+
             }
             ,error : function(xhr, status) {
             }
@@ -268,7 +284,7 @@ class genera{
             url: './verify',
             success: function(response, textStatus, jqXHR){
                 let res=JSON.parse(response);
-                $('#nombre_completo').html($('#td_nombre').html() + ' ' +  $('#td_apepat').html() + ' ' + $('#td_apemat').html() )
+                $('#nombre_completo').html($('#td_nombre_'+id_usuario).html() + ' ' +  $('#td_apepat_'+id_usuario).html() + ' ' + $('#td_apemat_'+id_usuario).html() )
                 if(res.status=='success'){
                     $('#qr_imagen').prop('src',res.data.img);
                     $('#qr_imagen').show()
