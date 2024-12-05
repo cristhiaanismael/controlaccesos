@@ -1,6 +1,8 @@
 class scaneo{
     
     scaneoQr(){
+        $('body').removeClass('.body');
+
         $("#qr").prop("disabled", "disabled");
         let code=$("#qr").val();
         let params = {
@@ -21,26 +23,25 @@ class scaneo{
 
                 if(res.status=='success'){
                     $('#audio_success')[0].play();
-
-                    
-
+                    $('body').addClass('body');
                     $.notify(res.msg, "success");
-
                     if(res.data.type=='SALIDA'){
+                        $('.md-8').removeClass('col-md-6')
+                        $('.md-8').addClass('col-md-8')
+
                         $('#typelog').html('Hasta pronto')
+
                     }else{
-                        $('#typelog').html('Bienvenido')
+                        $('#typelog').html('BIENVENIDO')
+                        $('.md-8').removeClass('col-md-8')
+                        $('.md-8').addClass('col-md-6')
 
                     }
-
-
                     if(res.data.tipo_usuario==1){
                         $('#welcom_participante').show();
                         $('#welcom_empleado').hide();
                         $('#welcom_visitante').hide();
                         scaneo.print_participante(res.data)
-
-
                     }else if(res.data.tipo_usuario==2){
                         $('#welcom_visitante').show();
                         $('#welcom_participante').hide();
@@ -52,7 +53,6 @@ class scaneo{
                         $('#welcom_participante').hide();
                         $('#welcom_empleado').show();
                         scaneo.print_empleado(res.data);
-
                     }
 
                     let mysqlDate = res.data.date_scanner;
@@ -62,19 +62,18 @@ class scaneo{
                    // let seconds = dateObj.getSeconds();  // Obtiene los segundos (0-59)
                     $('#datescanner').html(` ${hours}:${(minutes < 10 ? '0'+ minutes : minutes)}`);
                     $('#hour').show();
-
-
-
                 }else{
                     $.notify(res.msg, "error");
                     $('#audio_error')[0].play();
-
-
+                    $('body').addClass('body_error');
                 }
 
                 setTimeout(()=>{
                     $('#qr').removeAttr('disabled');
                     $('#qr').focus();
+                    $('body').removeClass('body');
+                    $('body').removeClass('body_error');
+
                 }, 800);
             }
             ,error : function(xhr, status) {
@@ -83,7 +82,6 @@ class scaneo{
                     $('#qr').removeAttr('disabled');
                     $('#qr').focus();
                 }, 500);
-
             }
         });
     }

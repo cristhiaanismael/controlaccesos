@@ -2,11 +2,15 @@
 namespace App\Controllers;
 //use App\Models\ClistaModel;
 use chillerlan\QRCode\QRCode;
+use chillerlan\QRCode\QROptions;
+use chillerlan\QRCode\Output\QRGdImagePNG;
 use chillerlan\QRCode\QRCodeException;
 use App\Libraries\Encript;
 use App\Models\Catqr_model;
 use App\Models\UserModel;
 use App\Models\LogModel;
+use ZipArchive; // Importar ZipArchive
+
 
 
 
@@ -28,6 +32,11 @@ class Qr extends BaseController
         $this->model = new Catqr_model();
         $this->modelUser = new UserModel();
         $this->modellog = new LogModel();
+
+       /* if (!session()->has('id_operador')) {
+            header('Location: ./');
+            exit;
+        }*/
 
 
 
@@ -73,7 +82,6 @@ class Qr extends BaseController
 
     }
     public function registraLog($idqr=false, $type=false){
-
         $res=false;
         if($idqr){
             $data=[
@@ -83,9 +91,17 @@ class Qr extends BaseController
             $res=true;   
         }
         return $res;
-
     }
 
+    static function convierteEntradaBySalida($fecha_last_scan, $tipo_last_scan){
+        $dia_last_registro = date('d', strtotime($fecha_last_scan));
+        $res=false;
+        if( $tipo_last_scan=='ENTRADA' && $dia_last_registro!=date('d') ){
+            $res= true;
+        }   
+        return $res;
+
+    }
 
     public function scanner(){	
         if($this->request->getPost('code') && strlen($this->request->getPost('code') )){
@@ -104,16 +120,22 @@ class Qr extends BaseController
                 'data' =>'',
                 'msg' =>'Error x002',
                 'extras' =>'longitud correcta del qr pero no encontro datos del qr'. json_encode($data_code)];
+
                 
                 if(isset($data_code[0])){
-                    if($data_code[0]->type=='' or $data_code[0]->type=='SALIDA' ) {
+                    if($data_code[0]->date_scanner!=null && $data_code[0]->date_scanner!=''){
+                         $data_code[0]->type=( QR::convierteEntradaBySalida($data_code[0]->date_scanner, $data_code[0]->type) ? 'SALIDA' : $data_code[0]->type);
+                    }
+
+                    if($data_code[0]->type=='' or $data_code[0]->type=='SALIDA'  ) {
                         $response=['status' =>false,
                         'data' =>'',
                         'msg' =>'Error x003',
                         'extras' =>'registrara entrada pero no valido las fechas'. json_encode($data_code)];
                         //aplicar reglar para dejar entrar
                         if( $data_code[0]->hour_entry!= '' && $data_code[0]->hour_entry!=NULL){
-                            echo 'validar entrada x hora';
+                            //echo 'validar entrada x hora';
+                            
                         }elseif($data_code[0]->date_entry!= '' && $data_code[0]->date_entry!=NULL ){
 
                                 $fecha_entry_bd = new DateTime($data_code[0]->date_entry);
@@ -161,6 +183,7 @@ class Qr extends BaseController
                                        'extras' =>$insert];
                         }
                     }else{
+                        //validar que la entrada que se tiene es del mismo dia
                         $insert=$this->registraLog($data_code[0]->id_qr, 'SALIDA');
                         $response=['status' =>'success',
                         'data' =>$data_code=$this->model->get_code($code)[0],
@@ -178,18 +201,22 @@ class Qr extends BaseController
                 if(isset($accesobyidentificador[0])){
 
                     $tipoderegistro=null;
+                    #SI LA FECHA DE ESCANER ES DIFERENTE DE  VACIA
+                    if($accesobyidentificador[0]->date_scanner!=null && $accesobyidentificador[0]->date_scanner!=''){
+                        #ENGARA EL FLUJO ACTUAL Y LO CONVERIRA EN ENTRADA PARA QUE EL PRIMER REGISTRO DEL DIA
+                        # QUEDE COMO ENTRADA
+                        $accesobyidentificador[0]->type=( QR::convierteEntradaBySalida($accesobyidentificador[0]->date_scanner, $accesobyidentificador[0]->type) ? 'SALIDA' : $accesobyidentificador[0]->type);
+                    }
+                    #DETECTA SI EL ULTIMO REGISTRO ES SALIDA O NO HAY UN REGISTRO PREVIO PARA QUE EL FLUJO SEA EL DE SALIDA
                     if($accesobyidentificador[0]->type=='' or $accesobyidentificador[0]->type=='SALIDA'){
                         $tipoderegistro='ENTRADA';
                     }else{
                         $tipoderegistro='SALIDA';
                     }
-
-
-                        $insert=$this->registraLog($accesobyidentificador[0]->id_qr,$tipoderegistro);
-                        $response=['status' =>'success',
+                    $insert=$this->registraLog($accesobyidentificador[0]->id_qr,$tipoderegistro);
+                    $response=['status' =>'success',
                         'data' =>$accesobyidentificador[0],
                         'msg' =>'Bienvenido'];
-                   
                 }else{
                     $response=['status' =>false,
                     'data' =>$accesobyidentificador,
@@ -203,6 +230,94 @@ class Qr extends BaseController
     
     }
 
+    public function borrarCarpeta($carpeta='./public/temp/qrs_') {
+        if (is_dir($carpeta)) {
+            $archivos = array_diff(scandir($carpeta), array('.', '..'));
+            foreach ($archivos as $archivo) {
+                $ruta = $carpeta . DIRECTORY_SEPARATOR . $archivo;
+                if (is_dir($ruta)) {
+                    $this->borrarCarpeta($ruta); // Llamada recursiva
+                } else {
+                    unlink($ruta); // Elimina el archivo
+                }
+            }
+            rmdir($carpeta);
+        } else {
+        }
+    }
+    public function borra_zip($archivo_zip=''){
+        if(file_exists($archivo_zip)){
+            if (unlink($archivo_zip)) {
+                $this->borra_zip($archivo_zip);
+               return true;
+            } else {
+                return false;
+            }
+        }else{
+            return true;
+        }
+    }
+
+    public function  addFolderToZip($folderPath, $zipArchive, $zipFolderPath = '') {
+        $folder = opendir('./public/temp/qrs_/');
+        while ($file = readdir($folder)) {
+            if ($file == '.' || $file == '..') {
+                continue;
+            }
+            $filePath = $folderPath . DIRECTORY_SEPARATOR . $file;
+            $zipPath = $zipFolderPath . DIRECTORY_SEPARATOR . $file;
+            if (is_dir($filePath)) {
+                $zipArchive->addEmptyDir($zipPath);
+                addFolderToZip($filePath, $zipArchive, $zipPath); // Recursión
+            } else {
+                $zipArchive->addFile($filePath, $zipPath);
+            }
+        }
+        closedir($folder);
+    }
+
+    public function create_imgs($array){
+        $data=$this->model->getById($array);
+        $this->borrarCarpeta();
+        $this->borra_zip('./public/temp/qrs_zip.zip');
+        mkdir('./public/temp/qrs_', 0777, true);
+        $res=[];
+     
+        if(isset($data[0])){
+            for($i=0;$i<count($data);$i++){
+                $file_path = './public/temp/qrs_/'.$data[$i]->nombre.'.png';
+                if (strpos($data[$i]->img, 'data:image/png;base64,') === 0) {
+                    $base64_string = substr($data[$i]->img, strlen('data:image/png;base64,'));
+                }
+                $image_data = base64_decode($base64_string);
+                if(file_put_contents($file_path, $image_data )) {
+                    $res['msj']=[$data[$i]->id_usuario => 'creada correctamente'];
+
+                } else {
+                    $res['msj']=[$data[$i]->id_usuario => 'problema'];
+                }
+
+            }
+        }
+        return $res;
+
+    }
+
+    public function createZip(){
+        $folderToCompress = './public/temp/qrs_';
+        $zipFileName = './public/temp/qrs_zip.zip';
+        $zip = new ZipArchive();
+        if ($zip->open($zipFileName, ZipArchive::CREATE) === TRUE) {
+            $this->addFolderToZip($folderToCompress, $zip);
+            $zip->close();
+            
+            return 'Carpeta comprimida con éxito en ' . $zipFileName;
+        } else {
+            return 'No se pudo crear el archivo ZIP.';
+        }
+
+    }
+
     public function createAll(){
         $arr_id_usuario[]=$this->request->getPost('selectedItems');
         $response=['status'=>'false',
@@ -210,7 +325,10 @@ class Qr extends BaseController
         'msj'=>'no process'];
         for ($i=0; $i <count($arr_id_usuario[0]); $i++) { 
             $res[]=$this->processCreate($arr_id_usuario[0][$i]);
+
         }
+        $res['imgs']=$this->create_imgs($arr_id_usuario[0]);
+        $res['zip']=$this->createZip();
         $response=['status'=>'success',
         'data'=>$res,
         'msj'=>'process'];
@@ -243,14 +361,43 @@ class Qr extends BaseController
 
                     try {
 
-                       /* $options = new QROptions([
-                            'size'      => 30,               // Tamaño del módulo (puedes incrementar para mayor resolución)
-                        ]);*/
+                        $options = new QROptions;
+                        $options->version             = 2;
+                        $options->outputInterface     = QRGdImagePNG::class;
+                        $options->scale               = 20;
+                        $options->outputBase64        = false;
+                        $options->bgColor             = [200, 150, 200];
+                        $options->imageTransparent    = true;
+                        #$options->transparencyColor   = [233, 233, 233];
+                        $options->drawCircularModules = false;
+                        $options->drawLightModules    = true;
+                        $options->drawSquareModules   = true; 
+                        $options->circleRadius        = 0.4;
                         
 
-                        $qrcode = new QRCode();
-                        // Genera el código QR
+                        $qrcode = new QRCode($options);
                         $image = $qrcode->render($code);
+                        $imageResource = imagecreatefromstring($image);
+                        $textColor = imagecolorallocate($imageResource, 0, 0, 0); // Blanco
+                        $fontPath = './public/resources/Parkinsans/Parkinsans-VariableFont_wght.ttf';  // Cambia esto a la ubicación de tu archivo de fuente
+                        $fontSize = 30;  // Tamaño de la fuente
+                        $userdata=$this->modelUser->readById($id_usuario);
+
+                        $nombreuser=(isset($userdata[0]) ? $userdata[0]->nombre. ' '. $userdata[0]->apellido_pat. ' '. $userdata[0]->apellido_mat  : 'S/N');
+
+                        $text = $nombreuser;
+                        $textX = 60;
+                        $textY = imagesy($imageResource) - 20;
+                        imagettftext($imageResource, $fontSize, 0, $textX, $textY, $textColor, $fontPath, $text);
+                        ob_start();
+                        imagepng($imageResource);
+                        $imageWithText = ob_get_clean();
+                        imagedestroy($imageResource);
+                        $imageBase64 = base64_encode($imageWithText);
+                        $image = 'data:image/png;base64,' . $imageBase64;
+
+
+
                         if($this->request->getPost('date_entry') ==''){
                             $data=[
                                 "code"=> $code ,
@@ -270,7 +417,6 @@ class Qr extends BaseController
                                 'date_exit' => $this->request->getPost('date_exit') ,
                                 'hour_exit' => $this->request->getPost('hour_exit') ,
                                 "created_at"=> date("Y-m-d H:i:s") 
-
                             ];
                         }
                         $this->model->create($data);

@@ -5,7 +5,7 @@
     <title>Bienvenido Icami</title>
     <meta name="description" content="Control de accesos qr">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/png" href="/favicon.ico">
+    <link rel="icon" href="./public/resources/img/logo.ico" type="image/x-icon">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -63,13 +63,54 @@
   100% { opacity: 1.0; }
 }
 
+.body {
+  background: linear-gradient(90deg, #73ff5f, #ffffff, #73ff5f);
+  animation: flash 2s infinite;
+  height: 100vh; /* Asegura que ocupe toda la pantalla */
+  margin: 0;
+}
+
+/* Animación de destello */
+@keyframes flash {
+  0%, 100% {
+    background: #73ff5f; /* Fondo oscuro */
+  }
+  50% {
+    background: #ffffff; /* Fondo blanco brillante */
+  }
+}
+
+
+
+.body_error {
+  background: linear-gradient(90deg, #ff0611, #ffffff, #ff0611);
+  animation: flash_error 2s infinite;
+  height: 100vh; /* Asegura que ocupe toda la pantalla */
+  margin: 0;
+}
+
+/* Animación de destello */
+@keyframes flash_error {
+  0%, 100% {
+    background: #ff0611; /* Fondo oscuro */
+  }
+  50% {
+    background: #ffffff; /* Fondo blanco brillante */
+  }
+}
+
+
+#typelog{
+  font-size: 6vw;
+}
+
 
 
      </style>
 
 
 </head>
-<body>
+<body class='' >
 
 <div class="container">
   <div class="row justify-content-center align-items-center minh-100">
@@ -127,9 +168,11 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-5"></div>
-        <div class="col-md-3"><h1 id='typelog'>Bienvenido </h1></div>
+      <div class='col-md-12 row'>
+        <div class="col-md-3 md-3"></div>
+        <div class="col-md-6 md-8"><h1 id='typelog'> </h1></div>
         <div class="col-md-3"></div>
+      </div>
 
         <div class='col-md-4'></div>
 
