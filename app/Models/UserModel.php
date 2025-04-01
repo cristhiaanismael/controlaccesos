@@ -55,6 +55,16 @@ class UserModel extends Model
         $res= $query->getResult();
         return $res;
     }
+    public function readByIdIn($ids){
+        
+        $query = $this->whereIn('usuarios.id_usuario', $ids)
+              ->join('cat_qr', 'cat_qr.id_usuario = usuarios.id_usuario')
+              ->where('cat_qr.activo', 1)
+              ->get();
+
+        $res = $query->getResult();
+        return $res;
+    }
     public function readByIdentificador($identificador){ 
          $builder = $this->db->table('cat_qr qr')
         ->select('qr.id_qr as id_qr, qr.id_usuario as qr_id_usuario, activo, date_entry, 
@@ -81,5 +91,19 @@ class UserModel extends Model
         $no = $this->affectedRows();
         return $no; 
     }
+    public function insert_data($data)
+{
+    // Intentar insertar los datos en la tabla 'usuarios'
+    $this->insert($data);
+
+    // Si la inserción fue exitosa, devolver el ID insertado
+    if ($this->insertID) {
+        return $this->insertID;
+    }
+
+    // Si la inserción falló, devolver false
+    return false;
+}
+
 
 }

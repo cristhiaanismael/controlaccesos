@@ -37,6 +37,7 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->get('/prueba', 'Home::prueba');
 $routes->get('/prueba2', 'Prueba::index');
+// ' nombre que sea'       'nombre ctrl' :: 'nombre del metodo'
 
 
 //ruta nueva
@@ -47,13 +48,19 @@ $routes->get('/prueba2', 'Prueba::index');
 
 $routes->get('/ExcelLector', 'ExcelLector::index');
 $routes->post('/recibe', 'ExcelLector::recibe');
+
+$routes->get('/recibe', 'ExcelLector::recibe');
+
 $routes->post('/exportar', 'ExcelLector::exportar');
 $routes->post('/Login/aut', 'Login::AutoLogin');
 $routes->post('/Login/process', 'Login::ProccesAuto');
 $routes->get('/alta', 'Alta::index');
 $routes->post('/alta/create', 'Alta::create');
 $routes->get('/alta/read', 'Alta::read');
+
 $routes->get('/genera', 'Genera::index');
+$routes->get('/gafete', 'Qr::gafete');
+$routes->get('/gafetes', 'Qr::gafetes');
 
 
 $routes->get('/qr', 'Qr::index');
@@ -62,6 +69,21 @@ $routes->post('/createall', 'Qr::createAll');
 $routes->post('/create', 'Qr::create');
 $routes->post('/verify', 'Qr::recupera');
 $routes->post('/scanner', 'Qr::scanner');
+$routes->post('/auth', 'AuthController::login');
+$routes->get('/logout', 'AuthController::logout');
+
+$routes->get('/admin', 'admin::index');
+
+$routes->get('/aforo', 'admin::aforo');
+$routes->get('/movimientos', 'admin::movimientos');
+$routes->get('/resumen', 'admin::resumen');
+//string como queremosingresa     controlador::metodo
+$routes->get('/imagen', 'Imagen::index');
+
+
+
+
+
 
 
 

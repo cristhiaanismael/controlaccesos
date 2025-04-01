@@ -4,16 +4,20 @@ namespace App\Controllers;
 
 class Genera extends BaseController
 {
-    public $session=null;
     public $db;
     public function __construct(){
-
-        $this->session= \Config\Services::session();
+       
+        if (!session()->has('id_operador')) {
+            header('Location: ./');
+            exit;
+        }
         $this->db = db_connect(); 
     }
-    public function index()
-    {        
-                return view('Genera_view');
+    public function index(){
+   // session()->get('id_operador');
+    $menu = view('Menu_view'); 
+    return view('Genera_view', ['menu' => $menu,
+                                            'nivel'=>session()->get('nivel')]
+                        );
     }
- 
 }

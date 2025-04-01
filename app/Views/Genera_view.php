@@ -5,7 +5,7 @@
     <title>Bienvenido Icami</title>
     <meta name="description" content="Control de accesos qr">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/png" href="/favicon.ico">
+    <link rel="icon" href="./public/resources/img/logo.ico" type="image/x-icon">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -26,6 +26,15 @@
     <script src="https://cdn.datatables.net/responsive/3.0.3/js/dataTables.responsive.js"></script>
     <script src="https://cdn.datatables.net/responsive/3.0.3/js/responsive.dataTables.js"></script>
     <script src="./public/resources/js/notify.min.js"></script>
+
+    
+    <script src="https://cdn.datatables.net/buttons/3.2.0/js/dataTables.buttons.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.2.0/js/buttons.dataTables.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.2.0/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.2.0/js/buttons.print.min.js"></script>
 
     <!-- STYLES -->
      <style>
@@ -49,6 +58,8 @@ div.dt-container {
 
 </head>
 <body>
+
+<?=$menu; ?>
 
 
 
@@ -87,9 +98,14 @@ div.dt-container {
               <br>
               <div class='row'> 
                 <div class='col-md-4'></div>
-                <div class='col-md-4'></div>
                 <div class='col-md-4'>
+                <button class='btn btn-success btn-block' onclick='generaObj.generaAllGafete()'>Generar gafetes de los seleccionados</button>
+
+                </div>
+                <div class='col-md-4'>
+                  <?php if($nivel==1){?>
                   <button class='btn btn-info btn-block' onclick='generaObj.generaAll()'>Generar QR de los seleccionados</button>
+                  <?php }?>
                 </div>
               </div>
             </div>
@@ -151,6 +167,8 @@ div.dt-container {
                               <button class="btn btn-primary" id='btnDescargar' onclick='generaObj.dowloadImg()'>Descargar <i class='fa fa-download'></i></button>
                               <button class="btn btn-danger" id='btnDesactivar' onclick='generaObj.desactivar()'>Desactivar</button><br>
                               <button class="btn btn-success mt-3" id='bntNuevo'onclick='generaObj.regenerate()'>Generar Nuevo</button><br>
+                              <button class="btn btn-info mt-3" id='bntgafete'onclick='generaObj.gafete()'><i class="fa fa-id-badge"></i>&nbsp; gafete</button><br>
+
                               <label>Permanente</label>
                               <input type="radio" name='caducidad' checked='true' onclick="$('#extras').hide()" >
 
@@ -210,7 +228,12 @@ div.dt-container {
 <script src='./public/resources/js/genera.js'></script>
 
 <script>
-    
+    let generaObj=new genera();
+$(document).ready(()=>{
+    generaObj.getUsers();
+    $('#crearBtn').click(()=>generaObj.generaQr());
+    $('#tipo_usuario').change(()=>generaObj.getUsers());
+});
 </script>
 
 </html>

@@ -52,29 +52,44 @@ class Catqr_model extends Model
     }
 
     public function get_code($code){
-
-
-
         $builder = $this->db->table('cat_qr qr')
             ->select('qr.id_qr as id_qr, qr.id_usuario as qr_id_usuario, activo, date_entry, 
                     date_exit, hour_entry, hour_exit, idlog_scanner,
                      log.id_qr as log_id_qr, date_scanner, type,
                      us.id_usuario, nombre, apellido_pat, apellido_mat,
                       matricula, programa, identificador, aquien_v,
-                       proviene_de, motivo, n_empleado, area, puesto, tipo_usuario')
+                       proviene_de, motivo, n_empleado, area, puesto, tipo_usuario, us.img as profile')
             ->join('logs_scanner log', 'log.id_qr=qr.id_qr', 'left')
             ->join('usuarios us', 'us.id_usuario=qr.id_usuario')
             ->where('code', $code)
             ->where('qr.activo', '1')
             ->orderBy('log.idlog_scanner', 'desc')
             ->limit(1);
-
         $query = $builder->get();
-        // Obtener la última consulta ejecutada
         //0$last_query =  $this->db->getLastQuery();
         $codes = $query->getResult();
         return $codes;
     }
+
+
+    public function getById($id_usuario=[]){
+        $builder = $this->db->table('cat_qr qr')
+            ->select('qr.id_qr as id_qr, qr.id_usuario as qr_id_usuario, activo, qr.img,
+                     us.id_usuario, nombre, apellido_pat, apellido_mat,
+                      matricula, programa, identificador, aquien_v, us.img as foto,
+                       proviene_de, motivo, n_empleado, area, puesto, tipo_usuario')
+            ->join('usuarios us', 'us.id_usuario=qr.id_usuario')
+            ->whereIn('qr.id_usuario', $id_usuario)
+            ->where('qr.activo', '1');
+        $query = $builder->get();
+        $last_query =  $this->db->getLastQuery();
+        $codes = $query->getResult();
+        return $codes;
+    }
+
+
+
+
     
 
     public function desactivar($id_usuario=false){

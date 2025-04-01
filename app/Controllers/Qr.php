@@ -106,6 +106,7 @@ class Qr extends BaseController
     public function scanner(){	
         if($this->request->getPost('code') && strlen($this->request->getPost('code') )){
             $code=$this->request->getPost('code');
+            $code=str_replace('-','/', $code);
             $long_code=strlen($code);
             require 'vendor/autoload.php';
             $encript = new Encript();
@@ -121,8 +122,32 @@ class Qr extends BaseController
                 'msg' =>'Error x002',
                 'extras' =>'longitud correcta del qr pero no encontro datos del qr'. json_encode($data_code)];
 
-                
+                //MANEJO DE RETARDOS ENTRE DOS LECTURAS IGUALES
                 if(isset($data_code[0])){
+                    if (!empty($data_code[0]->date_scanner)) {
+                        $dateFromDatabase = new \DateTime($data_code[0]->date_scanner);
+                        $currentDate = new \DateTime("now");
+                        $interval = $currentDate->getTimestamp() - $dateFromDatabase->getTimestamp();
+                        if ($interval < 15) {
+                            if($data_code[0]->type=="ENTRADA"){
+                                $response=['status' =>'success',
+                                'data' =>$data_code[0],
+                                'msg' =>'Ya se ha registrado tu ENTRADA',
+                                'extras' => 'entrada_ya_registrada' ];
+                            }
+
+                            else if($data_code[0]->type=="SALIDA"){
+                                $response=['status' =>'success',
+                                'data' =>$data_code[0],
+                                'msg' =>'Ya se ha registrado tu SALIDA',
+                                'extras' => 'salida_ya_registrada' ];
+                            }
+                            echo json_encode($response);
+                            die();
+                        }
+                    }
+
+
                     if($data_code[0]->date_scanner!=null && $data_code[0]->date_scanner!=''){
                          $data_code[0]->type=( QR::convierteEntradaBySalida($data_code[0]->date_scanner, $data_code[0]->type) ? 'SALIDA' : $data_code[0]->type);
                     }
@@ -285,7 +310,7 @@ class Qr extends BaseController
      
         if(isset($data[0])){
             for($i=0;$i<count($data);$i++){
-                $file_path = './public/temp/qrs_/'.$data[$i]->nombre.'.png';
+                $file_path = './public/temp/qrs_/'.$data[$i]->nombre."_".$data[$i]->apellido_pat."_".$data[$i]->apellido_mat.'.png';
                 if (strpos($data[$i]->img, 'data:image/png;base64,') === 0) {
                     $base64_string = substr($data[$i]->img, strlen('data:image/png;base64,'));
                 }
@@ -443,5 +468,76 @@ class Qr extends BaseController
         die();
                 
     }
+    public function gafete(){
+        // session()->get('id_operador');
+        // $menu = view('Menu_view'); 
+        $id_usuario=$this->request->getGet('id');
+
+        $userdata=$this->modelUser->readById($id_usuario);
+
+        $datos=[];
+        if(isset($userdata[0])){
+            $data=$this->model->getById([$id_usuario]);
+            if(isset($data[0])){
+
+                $datos['nombre']=$userdata[0]->nombre.' '. $userdata[0]->apellido_pat.' '.$userdata[0]->apellido_mat;
+                $datos['numero']=$userdata[0]->n_empleado;
+                $datos['area']=$userdata[0]->area;
+                $datos['puesto']=$userdata[0]->puesto;
+                $datos['foto']=( $userdata[0]->img ==''  ? 'default.jpg' : $userdata[0]->img);
+                $datos['qr']=$data[0]->img;
+                $datos['tipo']=$data[0]->tipo_usuario;
+
+                $datos['identificador']=$data[0]->identificador;
+                $datos['aquien_v']=$data[0]->aquien_v;
+                $datos['proviene_de']=$data[0]->proviene_de;
+                $datos['motivo']=$data[0]->motivo;
+
+
+            }
+
+
+
+        }
+         return view('Gafete_view', ['datos' =>$datos,
+                                                 'nivel'=>session()->get('nivel')]
+                             );
+         }
+
+
+         public function gafetes(){
+            $ids = json_decode($_GET['ids']);
+
+
+            $userdata=$this->modelUser->readByIdIn($ids);
+            $datos = []; // Inicializar el array para almacenar los datos de todos los usuarios
+
+            // Recorrer el array de usuarios
+            foreach ($userdata as $user) {
+                $info = []; // Array temporal para cada usuario
+            
+                $data=$this->model->getById([$user->id_usuario]);
+
+                $info['nombre'] = $user->nombre . ' ' . $user->apellido_pat . ' ' . $user->apellido_mat;
+                $info['numero'] = $user->n_empleado;
+                $info['area'] = $user->area;
+                $info['puesto'] = $user->puesto;
+                $info['foto'] = ($data[0]->foto == '' ? 'default.jpg' : $data[0]->foto);
+
+                $info['qr'] = $user->img;
+                $info['tipo'] = $user->tipo_usuario;
+                $info['identificador'] = $user->identificador;
+                $info['aquien_v'] = $user->aquien_v;
+                $info['proviene_de'] = $user->proviene_de;
+                $info['motivo'] = $user->motivo;
+                $info['programa'] = $data[0]->programa ;
+
+                $datos[] = $info;
+            }
+             return view('Gafetes_view', ['datos' =>$datos,
+                                                     'nivel'=>session()->get('nivel')]
+                                 );
+             }
+ 
  
 }

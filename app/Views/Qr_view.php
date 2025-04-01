@@ -101,10 +101,17 @@
 
 
 #typelog{
-  font-size: 6vw;
+  font-size: 4vw;
 }
 
-
+.user-photo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%; /* Hace que la imagen sea redonda */
+    display: block;
+    margin: 0 auto 10px auto;
+  }
 
      </style>
 
@@ -116,11 +123,13 @@
   <div class="row justify-content-center align-items-center minh-100">
     <div class="col-lg-12">
       <div>
-        <img class="img-fluid rounded mx-auto d-block" alt="logo" src='./public/resources/img/LOGO-min.png'>
+        <img class="img-fluid rounded mx-auto d-block" alt="logo" width="30%" src='./public/resources/img/LOGO-min.png'>
       </div>
 
+      <!--<img src="" class="user-photo" style="display:none" id="profile" alt="Foto del participante">-->
+
+
       <div>
-        <br>
         <p style="font-size:24px;" class="text-center"><i class="fa fa-id-badge"> Control de accesos</i></p>
       </div>
 
@@ -131,15 +140,37 @@
 
 
 <div style='display:none'>
-<audio id="audio_error">
+    <audio id="audio_error">
         <source src="./public/resources/audio/error.mp3" type="audio/mp3">
         Tu navegador no soporta la etiqueta de audio.
     </audio>
-
     <audio id="audio_success">
         <source src="./public/resources/audio/login.mp3" type="audio/mp3">
         Tu navegador no soporta la etiqueta de audio.
     </audio>
+    
+
+    <audio id="audio_bienvenido">
+        <source src="./public/resources/audio/voz/bienvenido.mp3" type="audio/mp3">
+        bienvenido.
+    </audio>
+    <audio id="audio_hasta_pronto">
+        <source src="./public/resources/audio/voz/hasta_pronto.mp3" type="audio/mp3">
+        hasta_pronto.
+    </audio>
+    <audio id="audio_no_valido">
+        <source src="./public/resources/audio/voz/no_valido.mp3" type="audio/mp3">
+        no_valido.
+    </audio>
+    <audio id="audio_entrada_registrada">
+        <source src="./public/resources/audio/voz/entrada_registrada.mp3" type="audio/mp3">
+        entrada_registrada.
+    </audio>
+    <audio id="audio_salida_registrada">
+        <source src="./public/resources/audio/voz/salida_registrada.mp3" type="audio/mp3">
+        salida_registrada.
+    </audio>
+    
 </div>
 
 
@@ -155,7 +186,9 @@
             <div class="input-group-prepend">
             <span class="input-group-text"><i class="fa fa-qrcode" style="font-size:2.1em"></i></span>
             </div>
-            <input type="text" class="form-control form-control-lg" placeholder="Escane su QR" required='required' id='qr' name='qr'>
+
+            <input type="text" class="form-control form-control-lg" placeholder="Escane su QR"
+             required='required' id='qr' name='qr' autocomplete="off">
         </div>
 
    
@@ -168,19 +201,27 @@
 
 <div class="container">
     <div class="row">
+    <div class='col-md-12 '>
+    <img src="" class="user-photo" style="display:none" id="profile" alt="Foto del participante">
+
+    </div>
+
       <div class='col-md-12 row'>
-        <div class="col-md-3 md-3"></div>
-        <div class="col-md-6 md-8"><h1 id='typelog'> </h1></div>
-        <div class="col-md-3"></div>
+
+        <div class="col-md-4 md-3"></div>
+        <div class="col-md-4 md-8"><h1 id='typelog'> </h1></div>
+        <div class="col-md-4"></div>
       </div>
 
         <div class='col-md-4'></div>
 
         <div class='col-md-4' id='welcom_participante' style='display:none'>
+
             <h5 class='mayus'><i class="fa fa-mortar-board"></i><i id='name_participante'> </i></h5>
             <h5 class='mayus'><i class="fa fa-address-card-o"></i> <i id='programa'  > </i></h5>
         </div>
         <div class='col-md-4' id='welcom_empleado' style='display:none' >
+
             <h5 class='mayus'><i class="fa fa-black-tie"></i> <i id='name_empleado'></i> </h5>
             <h5 class='mayus'><i class="fa fa-building"></i>Area: <i class='mayus' id='depto'> </i></h5>
             <h5 class='mayus'><i class="fa fa-briefcase"></i>Puesto: <i class='mayus' id='puesto'></i> </h5>
@@ -210,6 +251,11 @@
     $(document).ready(()=>{
         $('#qr').focus();
     });
+  
+
+
+
 </script>
+
 
 </html>

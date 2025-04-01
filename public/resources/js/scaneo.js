@@ -8,6 +8,7 @@ class scaneo{
         let params = {
             code
         }
+        let count = 0;
         scaneo.reset()
         $.ajax({
             type: 'POST',
@@ -22,17 +23,36 @@ class scaneo{
                 //3 empleado
 
                 if(res.status=='success'){
-                    $('#audio_success')[0].play();
+                    //$('#audio_success')[0].play();
                     $('body').addClass('body');
+                    let img='default.png';
+                    if(res.data.profile!='' && res.data.profile!=null ){
+                        img=res.data.profile
+                    }
+                    $('#profile').attr('src', './img/'+img);
+                    $('#profile').show();
+
+
                     $.notify(res.msg, "success");
-                    if(res.data.type=='SALIDA'){
+                   
+                    if(res.extras=='entrada_ya_registrada'){
+                        $('#audio_entrada_registrada')[0].play();
                         $('.md-8').removeClass('col-md-6')
                         $('.md-8').addClass('col-md-8')
-
+                        $('#typelog').html('BIENVENIDO')
+                    }else if(res.extras=='salida_ya_registrada'){
+                        $('#audio_salida_registrada')[0].play();
+                        $('.md-8').removeClass('col-md-6')
+                        $('.md-8').addClass('col-md-8')
                         $('#typelog').html('Hasta pronto')
-
+                    }else if(res.data.type=='SALIDA'){
+                        $('#audio_hasta_pronto')[0].play();
+                        $('.md-8').removeClass('col-md-6')
+                        $('.md-8').addClass('col-md-8')
+                        $('#typelog').html('Hasta pronto')
                     }else{
                         $('#typelog').html('BIENVENIDO')
+                        $('#audio_bienvenido')[0].play();
                         $('.md-8').removeClass('col-md-8')
                         $('.md-8').addClass('col-md-6')
 
@@ -64,7 +84,7 @@ class scaneo{
                     $('#hour').show();
                 }else{
                     $.notify(res.msg, "error");
-                    $('#audio_error')[0].play();
+                    $('#audio_no_valido')[0].play();
                     $('body').addClass('body_error');
                 }
 
@@ -75,6 +95,13 @@ class scaneo{
                     $('body').removeClass('body_error');
 
                 }, 800);
+
+                
+             
+
+
+
+
             }
             ,error : function(xhr, status) {
                 $("#qr").val('');
@@ -98,6 +125,10 @@ class scaneo{
         $('#visita').html( '' )
         $('#motivo').html( '')
         $('#hour').hide();
+        $('#profile').attr('src', '');
+        $('#profile').hide();
+        $('#typelog').html('');
+
 
     }
     static print_participante(data){
@@ -118,6 +149,8 @@ class scaneo{
 
 }
 let objScaneo = new scaneo();
+let reloadTimeout;
+
 $(document).ready(e=>{
 
     $('#form_scanner').submit(e=>{
@@ -131,4 +164,20 @@ $(document).ready(e=>{
 
 
     });
+
+
+
+    function resetReloadTimer() {
+        clearTimeout(reloadTimeout);
+        reloadTimeout = setTimeout(() => {
+          scaneo.reset();
+        }, 15000); // 15000 ms = 15 segundos
+    }
+      
+        $(document).ajaxComplete(() => {
+            resetReloadTimer();
+            // Iniciar el temporizador desde el principio
+            resetReloadTimer();
+        });
+    
 });

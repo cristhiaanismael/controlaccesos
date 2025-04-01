@@ -65,3 +65,24 @@ $app->setContext($context);
  */
 
 $app->run();
+
+function debug($variable, $label = null) {
+    // Información del archivo y línea donde se llamó la función
+    $trace = debug_backtrace();
+    $caller = $trace[0];
+
+    // Etiqueta opcional
+    $label = $label ? "<strong>$label:</strong> " : "";
+
+    // Información a mostrar
+    echo "<pre style='background: #f4f4f4; color: #333; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px; line-height: 1.4;'>";
+    echo $label;
+    echo "<strong>Archivo:</strong> {$caller['file']}<br>";
+    echo "<strong>Línea:</strong> {$caller['line']}<br><br>";
+    echo "<strong>Contenido:</strong><br>";
+    print_r($variable); // Muestra el contenido de la variable
+    echo "</pre>";
+
+    // Finaliza el script (opcional para detener la ejecución)
+    die();
+}

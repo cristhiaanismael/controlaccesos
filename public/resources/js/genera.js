@@ -1,4 +1,6 @@
 class genera{
+    
+    
     static selectAll(){
         $('.checkbox').attr('checked','checked')
     }
@@ -96,7 +98,10 @@ class genera{
                                     <th>Apellido Pat</th>
                                     <th>Apellido Mat</th>
                                     <th>No# empleado</th>
+                                    <th>Email</th>
+
                                     <th>Area</th>
+                                    <th>Nombre Archivo</th>
                                     <th>Options</th>
 
                             </tr>
@@ -111,7 +116,11 @@ class genera{
                             <td id='td_apepat_${data[i].id_usuario}'>${data[i].apellido_pat}</td>
                             <td id='td_apemat_${data[i].id_usuario}'>${data[i].apellido_mat}</td>
                             <td>${data[i].n_empleado}</td>
+                            <td>${data[i].correo}</td>
+
                             <td>${data[i].area}</td>
+                            <td id='td_archivo_${data[i].id_usuario}'>${data[i].nombre}_${data[i].apellido_pat}_${data[i].apellido_mat}.png</td>
+
                             <td><a  href="#myModal" onclick='generaObj.recuperaQr(${data[i].id_usuario})' ><i class='fa fa-qrcode'></i></a href='#'></td>
 
                     </tr>`;
@@ -123,11 +132,38 @@ class genera{
         table+=`</tbody>`;
         $('#myTable').html(table);
 
-        setTimeout(function(){
+       /* setTimeout(function(){
             $('#myTable').DataTable({
                 responsive: true
             });
-        }, 1000)
+        }, 1000)*/
+
+
+
+        
+        setTimeout(function(){
+            var datatable= new DataTable('#myTable',{
+                buttons: [
+                    {
+                        extend: 'excel',
+                        text: 'excel',
+                        className: 'btn btn-success'
+                    },
+                    {
+                        extend: 'print',
+                        text: 'Imprimir',
+                        className: 'btn btn-secondary'
+                    }
+                ],
+                layout: {
+                 
+                    bottomStart: 'buttons'
+                    },
+                responsive: true,
+
+            });
+            
+        }, 700)
     }
 
     static reset(){
@@ -149,7 +185,7 @@ class genera{
             canvas.width = img.width * 1.5;
             canvas.height = img.height * 1.5;
             ctx.drawImage(img, 0, 0);
-
+            /*
             // Agregar el texto antes de convertir a imagen
             ctx.font = '15px Arial';  // Establece el tamaño de la fuente
             ctx.fillStyle = 'black';  // Establece el color del texto
@@ -157,11 +193,11 @@ class genera{
             ctx.textBaseline = 'middle';  // Alineación vertical
             
             // Agregar texto en el centro del canvas
-            ctx.fillText($('#nombre_completo').html(), canvas.width / 2, 213);  // Ajusta las coordenadas según sea necesario
+            ctx.fillText($('#nombre_completo').html(), canvas.width / 2, 213);  // Ajusta las coordenadas según sea necesario*/
             var pngDataUrl = canvas.toDataURL('image/png');
             var link = document.createElement('a');
             link.href = pngDataUrl;
-            link.download = 'qr_'+id+ '.png';  // Nombre del archivo de la imagen
+            link.download = 'qr_'+$('#nombre_completo').html()+ '.png';  // Nombre del archivo de la imagen
             link.click();
         };
         img.src = $('#qr_imagen').attr('src') ;
@@ -207,9 +243,7 @@ class genera{
             url: './createall',
             success: function(response, textStatus, jqXHR){
                 $(".notifyjs-corner").find('.notifyjs-wrapper').fadeOut();
-
                 let res=JSON.parse(response);
-
                 if(res.status=='success'){
                     $('#qr_imagen').prop('src',res.data.img);
                     $('#qr_imagen').show()
@@ -217,6 +251,7 @@ class genera{
                     $('#btnDesactivar').removeAttr('disabled');
                     $('#btnDescargar').removeAttr('disabled');
                     $('#creted_at').html(res.data.created_at)
+                    window.open('./public/temp/qrs_zip.zip', '_blank');
                 }else{
                     $('#qr_imagen').hide()
 
@@ -293,12 +328,16 @@ class genera{
                     $('#creted_at').html(res.data.created_at)
 
                     $('#crearBtn').attr('disabled','disabled');
+                    $('#bntgafete').removeAttr('disabled','disabled');
+
 
                 }else{
                     $('#qr_imagen').hide()
                     $('#bntNuevo').attr('disabled','disabled');
                     $('#btnDesactivar').attr('disabled','disabled');
                     $('#btnDescargar').attr('disabled','disabled');
+                    $('#bntgafete').attr('disabled','disabled');
+
                 }
             }
             ,error : function(xhr, status) {
@@ -307,10 +346,26 @@ class genera{
         });
         $('#myModal').modal('show');
     }
+    gafete(){
+        let idUsuario = $('#id_usuario_val').val();
+        let url = './gafete/?id=' + idUsuario;
+        window.open(url, '_blank'); // Abre en nueva pestaña
+    }
+    generaAllGafete(){
+        let seleccionados = [];
+        $('input[name="seleccionado[]"]:checked').each(function() {
+            seleccionados.push($(this).val());
+        });
+
+        // Verificar si hay al menos un checkbox seleccionado
+        if (seleccionados.length > 0) {
+            // Convertir el array en una cadena de texto con formato JSON
+            let queryString = 'ids=' + JSON.stringify(seleccionados);
+            // Redirigir a la URL con el array en formato ?ids=[1,2,3...]
+            window.location.href = 'gafetes?' + queryString;
+        } else {
+            alert("Por favor, selecciona al menos una opción.");
+        }
+    }
+
 }
-let generaObj=new genera();
-$(document).ready(()=>{
-    generaObj.getUsers();
-    $('#crearBtn').click(()=>generaObj.generaQr());
-    $('#tipo_usuario').change(()=>generaObj.getUsers());
-});

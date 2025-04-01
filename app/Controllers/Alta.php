@@ -11,15 +11,18 @@ class Alta extends BaseController
 
     public function __construct(){
 
-        $this->session= \Config\Services::session();
+        if (!session()->has('id_operador')) {
+            header('Location: ./');
+            exit;
+        }
         $this->db = db_connect(); 
         $this->model = new UserModel();
-        $this->id_user_sesion='1';
-
+        $this->id_user_sesion=session()->get('id_operador');
     }
     public function index()
     {        
-                return view('Alta_view');
+
+                return view('Alta_view', ['menu' => view('menu_view')]);
     }
     public function dataByTipo($tipo){
         $data=[];
@@ -85,9 +88,12 @@ class Alta extends BaseController
     public function create(){
         $data=self::dataByTipo($this->request->getPost('tipo_usuario'));
         $insert=$this->model->create($data);
+
+        $data['id_usuario']=$insert;
+
         $response=['status'=>'success',
               'data'=>$data,
-            'msj'=>''];
+            'msj'=>'Creado exitosamente'];
         echo json_encode($response);
     
 
